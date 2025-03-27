@@ -11,14 +11,12 @@ const socials: Social[] = [
   {
     name: "Facebook",
     icon: <FaFacebook />,
-    url: "https://facebook.com/intent/",
+    url: "https://facebook.com/rrafidd/",
   },
-  { name: "Twitter", icon: <FaTwitter />, url: "https://twitter.com/intent/" },
-  { name: "Youtube", icon: <FaYoutube />, url: "https://youtube.com/intent/" },
   {
     name: "LinkedIn",
     icon: <FaLinkedin />,
-    url: "https://linkedin.com/intent/",
+    url: "https://linkedin.com/in/rafid-al-khairy/",
   },
 ];
 
@@ -31,7 +29,7 @@ const Socials = ({ containerStyles, iconStyles }: Props) => {
   return (
     <div className={containerStyles}>
       {socials.map((social, index) => (
-        <Link key={index} href={social.url} className={iconStyles}>
+        <Link key={index} href={social.url} className={iconStyles} target="_blank" rel="noopener noreferrer">
           {social.icon}
         </Link>
       ))}
