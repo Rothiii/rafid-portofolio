@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaFacebook, FaLinkedin, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaLinkedin, FaTwitter, FaYoutube } from "react-icons/fa";
 
 type Social = {
   url: string;
@@ -18,6 +18,11 @@ const socials: Social[] = [
     icon: <FaLinkedin />,
     url: "https://linkedin.com/in/rafid-al-khairy/",
   },
+  {
+    name: "Github",
+    icon: <FaGithub />,
+    url: "https://github.com/Rothiii",
+  }
 ];
 
 type Props = {
