@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaFacebook, FaGithub, FaLinkedin, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaTwitter, FaYoutube } from "react-icons/fa";
 
 type Social = {
   url: string;
@@ -22,7 +22,13 @@ const socials: Social[] = [
     name: "Github",
     icon: <FaGithub />,
     url: "https://github.com/Rothiii",
+  },
+  {
+    name: "Instagram",
+    icon: <FaInstagram />,
+    url: "https://instagram.com/rafidal._/",
   }
+
 ];
 
 type Props = {
