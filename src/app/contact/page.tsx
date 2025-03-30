@@ -14,31 +14,9 @@ import {
   SelectTrigger,
 } from "@/components/ui/select";
 
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { info } from "@/data/contact";
 
-type Info = {
-  icon: JSX.Element;
-  title: string;
-  description: string;
-};
-const info: Info[] = [
-  {
-    icon: <FaPhoneAlt />,
-    title: "Phone",
-    description: "(+40) 321 123 123",
-  },
-  {
-    icon: <FaEnvelope />,
-    title: "Email",
-    description: "luke.01@gmail.com",
-  },
-  {
-    icon: <FaMapMarkerAlt />,
-    title: "Address",
-    description: "Code Corner, Tech Town 13579",
-  },
-];
+import { motion } from "framer-motion";
 
 const ContactPage = () => {
   return (
