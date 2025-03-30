@@ -60,8 +60,13 @@ const ContactPage = () => {
               </Select>
 
               <Textarea
-                className="h-[200px]"
+                className="h-[50px] resize-none overflow-hidden"
                 placeholder="Type your message here."
+                onInput={(e) => {
+                  const target = e.target as HTMLTextAreaElement;
+                  target.style.height = "50px";
+                  target.style.height = `${target.scrollHeight}px`;
+                }}
               />
 
               <Button size="md" type="submit" className="max-w-40">
