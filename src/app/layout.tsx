@@ -6,6 +6,8 @@ import "./globals.css";
 import Header from "@/components/Header";
 import PageTransition from "@/components/PageTransition";
 import StairTransition from "@/components/StairTransition";
+import ConnectionTracker from "@/components/ConnectionTracker";
+import ConnectionStatus from "@/components/ConnectionStatus";
 
 const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -29,6 +31,8 @@ export default function RootLayout({
         <Header />
         <StairTransition />
         <PageTransition>{children}</PageTransition>
+        <ConnectionTracker />
+        <ConnectionStatus />
       </body>
     </html>
   );
