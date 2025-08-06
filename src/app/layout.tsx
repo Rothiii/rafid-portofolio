@@ -8,6 +8,7 @@ import PageTransition from "@/components/PageTransition";
 import StairTransition from "@/components/StairTransition";
 import ConnectionTracker from "@/components/ConnectionTracker";
 import ConnectionStatus from "@/components/ConnectionStatus";
+import { Analytics } from "@vercel/analytics/next"
 
 const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -33,6 +34,7 @@ export default function RootLayout({
         <PageTransition>{children}</PageTransition>
         <ConnectionTracker />
         <ConnectionStatus />
+        <Analytics />
       </body>
     </html>
   );
