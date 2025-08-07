@@ -8,9 +8,9 @@ export async function GET(request: NextRequest) {
     "127.0.0.1";
 
   const userConnections = getActiveConnections(ip) as number;
-  const totalConnections = Array.from(
-    (getActiveConnections() as Map<string, number>).values()
-  ).reduce((sum, count) => sum + count, 0);
+  const connectionsMap = getActiveConnections() as Map<string, { count: number; lastSeen: number }>;
+  const totalConnections = Array.from(connectionsMap.values())
+    .reduce((sum, conn) => sum + conn.count, 0);
 
   return NextResponse.json({
     userConnections,
