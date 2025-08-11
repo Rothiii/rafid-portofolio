@@ -26,14 +26,6 @@ const HomePage = () => {
             </p>
             {/* button and socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
-              <Button
-                variant="outline"
-                size="lg"
-                className="uppercase flex items-center gap-2"
-              >
-                <span>Download CV</span>
-                <FiDownload className="text-xl" />
-              </Button>
               <div className="mb-8 xl:mb-0">
                 <Socials
                   containerStyles="flex gap-6"
@@ -50,7 +42,15 @@ const HomePage = () => {
         </div>
       </div>
 
-      <Stats />
+      <p className="text-center text-white/80 mb-8">
+        Nice to meet you! Let's get to know me better.
+      </p>
+
+      <div className="flex justify-center">
+        <div className="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center animate-bounce">
+          <span className="text-accent">↓</span>
+        </div>
+      </div>
     </section>
   );
 };
