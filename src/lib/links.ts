@@ -18,5 +18,6 @@ export const links = [
   {
     name: "Contact",
     path: "/contact",
+    hidden: true,
   },
 ];
