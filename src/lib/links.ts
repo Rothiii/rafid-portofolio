@@ -3,10 +3,11 @@ export const links = [
     name: "Home",
     path: "/",
   },
-  // {
-  //   name: "Services",
-  //   path: "/services",
-  // },
+  {
+    name: "Services",
+    path: "/services",
+    hidden: true,
+  },
   {
     name: "Resume",
     path: "/resume",
@@ -14,6 +15,11 @@ export const links = [
   {
     name: "Projects",
     path: "/projects",
+  },
+  {
+    name: "Blog",
+    path: "/blog",
+    hidden: true,
   },
   {
     name: "Contact",
