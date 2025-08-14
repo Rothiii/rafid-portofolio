@@ -7,9 +7,11 @@ import { CiMenuFries } from "react-icons/ci";
 
 // lib
 import { links } from "@/lib/links";
+import { Button } from "./ui/button";
 
 const MobileNav = () => {
   const pathname = usePathname();
+  const visibleLinks = links.filter(link => !link.hidden);
   return (
     <Sheet>
       <SheetTrigger className="flex justify-center items-center">
@@ -28,7 +30,7 @@ const MobileNav = () => {
 
         {/* nav */}
         <nav className="flex flex-col justify-center items-center gap-8">
-          {links.map((link, index) => (
+          {visibleLinks.map((link, index) => (
             <Link
               href={link.path}
               key={index}
@@ -39,6 +41,15 @@ const MobileNav = () => {
               {link.name}
             </Link>
           ))}
+          <Link href="/contact">
+            <Button 
+              className={`${
+                pathname === "/contact" 
+                  ? "text-white border-b-2 border-white" 
+                  : ""
+              }`}
+            >Contact Me</Button>
+          </Link>
         </nav>
       </SheetContent>
     </Sheet>

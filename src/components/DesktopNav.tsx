@@ -5,12 +5,14 @@ import { usePathname } from "next/navigation";
 
 // lib
 import { links } from "@/lib/links";
+import { Button } from "./ui/button";
 
 const DesktopNav = () => {
   const pathname = usePathname();
+  const visibleLinks = links.filter(link => !link.hidden);
   return (
     <nav className="flex gap-8">
-      {links.map((link, index) => (
+      {visibleLinks.map((link, index) => (
         <Link
           key={index}
           href={link.path}
@@ -21,6 +23,17 @@ const DesktopNav = () => {
           {link.name}
         </Link>
       ))}
+      <Link href="/contact">
+        <Button
+          className={`${
+            pathname === "/contact"
+              ? "text-white border-b-2 border-white "
+              : ""
+          }`}
+        >
+          Contact Me
+        </Button>
+      </Link>
     </nav>
   );
 };
