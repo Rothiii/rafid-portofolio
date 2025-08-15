@@ -1,12 +1,58 @@
-import Stats from "@/components/Stats";
-import { FiDownload } from "react-icons/fi";
+"use client";
+
+import { useState, useEffect } from "react";
 
 // components
 import Photo from "@/components/Photo";
 import Socials from "@/components/Socials";
-import { Button } from "@/components/ui/button";
 
 const HomePage = () => {
+  const roles = [
+    "Software Engineer",
+    "Data Engineer Enthusiast",
+    "Cloud/DevOps Enthusiast",
+    "Backend Engineer",
+  ];
+
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const [currentText, setCurrentText] = useState("");
+  const [isTyping, setIsTyping] = useState(true);
+  const [charIndex, setCharIndex] = useState(0);
+  const [isComplete, setIsComplete] = useState(false);
+
+  useEffect(() => {
+    const currentRole = roles[currentRoleIndex];
+
+    if (isTyping) {
+      if (charIndex < currentRole.length) {
+        setIsComplete(false);
+        const timeout = setTimeout(() => {
+          setCurrentText(currentRole.slice(0, charIndex + 1));
+          setCharIndex(charIndex + 1);
+        }, 100);
+        return () => clearTimeout(timeout);
+      } else {
+        setIsComplete(true);
+        const timeout = setTimeout(() => {
+          setIsTyping(false);
+          setIsComplete(false);
+        }, 2000);
+        return () => clearTimeout(timeout);
+      }
+    } else {
+      if (charIndex > 0) {
+        const timeout = setTimeout(() => {
+          setCurrentText(currentRole.slice(0, charIndex - 1));
+          setCharIndex(charIndex - 1);
+        }, 50);
+        return () => clearTimeout(timeout);
+      } else {
+        setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+        setIsTyping(true);
+      }
+    }
+  }, [charIndex, isTyping, currentRoleIndex, roles]);
+
   return (
     <section className="h-full">
       <div className="container mx-auto h-full">
@@ -14,15 +60,31 @@ const HomePage = () => {
           {/* text */}
           <div className="text-center xl:text-left order-2 xl:order-none">
             {/* info */}
-            <span className="text-xl">Software Engineer</span>
-            <h1 className="h1 mb-6">
+            <h2 className="h2 mb-6">
               Hello I'm
               <br />
               <span className="text-accent">Rafid Al Khairy</span>
-            </h1>
-            <p className="max-w-[480px] mb-5 text-white/80">
-              I excel at crafting elegant digital experiences and I am
-              proficient in various programming languages and technologies.
+            </h2>
+            <div className="text-xl min-h-[28px]">
+              <span className="text-white">I'm a {currentText}</span>
+              <span
+                className="text-accent"
+                style={
+                  isComplete
+                    ? {
+                        animation: "blink 0.8s infinite",
+                        animationTimingFunction: "step-end",
+                      }
+                    : {}
+                }
+              >
+                |
+              </span>
+            </div>
+            <p className="max-w-[480px] my-5 text-white/80">
+              Crafting innovative solutions with clean code and cutting-edge
+              technologies. Ready to bring your next project to life. Let's
+              build something amazing together. 
             </p>
             {/* button and socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
@@ -33,9 +95,6 @@ const HomePage = () => {
                 />
               </div>
             </div>
-            {/* <p className="text-center text-white/80 mb-9">
-              Nice to meet you! Let's get to know me better.
-            </p> */}
           </div>
 
           {/* photo */}
@@ -44,14 +103,8 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-
-
-      {/* <div className="flex justify-center">
-        <div className="w-10 h-10 border-2 border-accent rounded-full flex items-center justify-center animate-bounce">
-          <span className="text-accent">↓</span>
-        </div>
-      </div> */}
     </section>
+
   );
 };
 

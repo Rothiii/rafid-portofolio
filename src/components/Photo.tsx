@@ -9,31 +9,14 @@ const Photo = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 2, duration: 0.4, ease: "easeIn" }}
-      className="w-full h-full relative"
+      className="w-full h-full relative flex items-center justify-center"
     >
-      {/* image */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2.4, duration: 0.4, ease: "easeInOut" }}
-        className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten absolute"
-      >
-        <Image
-          src="/assets/photo.png"
-          alt=""
-          priority
-          quality={100}
-          fill
-          className="object-contain"
-        />
-      </motion.div>
-
       {/* circle */}
       <motion.svg
         fill="transparent"
         viewBox="0 0 506 506"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-[300px] h-[300px] xl:w-[500px] xl:h-[500px]"
+        className="w-[260px] h-[260px] xl:w-[460px] xl:h-[460px]"
       >
         <motion.circle
           cx={253}
@@ -55,6 +38,24 @@ const Photo = () => {
           }}
         />
       </motion.svg>
+
+      {/* image */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2.4, duration: 0.4, ease: "easeInOut" }}
+        className="absolute w-[250px] h-[250px] xl:w-[450px] xl:h-[450px] rounded-full overflow-hidden"
+      >
+        <Image
+          src="/assets/photo3.png"
+          alt="Rafid Al Khairy"
+          priority
+          quality={100}
+          fill
+          className="object-cover"
+          
+        />
+      </motion.div>
     </motion.div>
   );
 };
