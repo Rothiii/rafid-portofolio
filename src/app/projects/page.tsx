@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
-import { BsArrowUpRight, BsGithub } from "react-icons/bs";
+import { BsArrowUpRight, BsGithub, BsArrowUp } from "react-icons/bs";
 import {
   Tooltip,
   TooltipContent,
@@ -23,7 +23,52 @@ const ProjectsPage = () => {
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [showScrollToTop, setShowScrollToTop] = useState(false);
   const itemsPerPage = 12;
+
+  // Refs for scroll positions
+  const heroSectionRef = useRef<HTMLElement>(null);
+
+  // Auto scroll to hero section when page loads
+  useEffect(() => {
+    const scrollToHero = () => {
+      if (heroSectionRef.current) {
+        // Small delay to ensure page is fully loaded
+        setTimeout(() => {
+          heroSectionRef.current?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }, 100);
+      }
+    };
+
+    scrollToHero();
+  }, []);
+
+  // Handle scroll events for showing scroll-to-top button
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const heroSection = heroSectionRef.current;
+
+      if (heroSection) {
+        const heroOffset = heroSection.offsetTop;
+        // Show scroll to top button when user scrolls past hero section
+        setShowScrollToTop(scrollPosition > heroOffset + 200);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   // Calculate pagination
   const totalPages = Math.ceil(projects.length / itemsPerPage);
@@ -76,10 +121,12 @@ const ProjectsPage = () => {
 
   return (
     <>
+      {/* Hero Section */}
       <motion.section
+        ref={heroSectionRef}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2.4, duration: 0.4, ease: "easeIn" }}
+        transition={{ delay: 0.2, duration: 0.6, ease: "easeIn" }}
         className="min-h-screen relative"
       >
         {/* Main Content Area - Full Screen Background Image with Swiper */}
@@ -652,6 +699,21 @@ const ProjectsPage = () => {
             </div>
           </motion.div>
         </motion.div>
+      )}
+
+      {/* Floating Scroll to Top Button */}
+      {showScrollToTop && (
+        <motion.button
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.8 }}
+          transition={{ duration: 0.2 }}
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 z-40 w-12 h-12 bg-accent hover:bg-accent-hover text-primary rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110"
+          aria-label="Scroll to top"
+        >
+          <BsArrowUp className="text-lg" />
+        </motion.button>
       )}
     </>
   );
