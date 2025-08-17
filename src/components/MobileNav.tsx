@@ -1,54 +1,65 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { CiMenuFries } from "react-icons/ci";
-
-// lib
+import { useState } from "react";
 import { links } from "@/lib/links";
 import { Button } from "./ui/button";
 
 const MobileNav = () => {
   const pathname = usePathname();
-  const visibleLinks = links.filter(link => !link.hidden);
+  const [isOpen, setIsOpen] = useState(false);
+  const visibleLinks = links.filter((link) => !link.hidden);
+
+  const handleLinkClick = () => {
+    
+    setIsOpen(false);
+  };
+
   return (
-    <Sheet>
+    <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger className="flex justify-center items-center">
         <CiMenuFries className="text-[32px] text-accent" />
       </SheetTrigger>
       <SheetContent className="flex flex-col">
-        {/* logo */}
-        <div className="mt-32 mb-32 text-center text-2xl">
-          <Link href="/">
+        {/* Logo */}
+        <div className="mt-32 mb-40 text-center text-2xl">
+          <Link href="/" onClick={handleLinkClick}>
             <h1 className="text-4xl font-semibold">
-              Menu
-              <span className="text-accent">.</span>
+              Rafid<span className="text-accent">.</span>
             </h1>
           </Link>
         </div>
-
-        {/* nav */}
+        {/* Navigation */}
         <nav className="flex flex-col justify-center items-center gap-8">
-          {visibleLinks.map((link, index) => (
-            <Link
-              href={link.path}
-              key={index}
+          {visibleLinks.map((link, index) => {
+            return (
+              <Link
+                href={link.path}
+                key={index}
+                onClick={handleLinkClick}
+                className={`${
+                  link.path === pathname &&
+                  "text-accent border-b-2 border-accent"
+                } text-xl capitalize hover:text-accent transition-all`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
+          {/* Contact Button */}
+          <Link href="/contact" onClick={handleLinkClick}>
+            <Button
               className={`${
-                link.path === pathname && "text-accent border-b-2 border-accent"
-              } text-xl capitalize hover:text-accent transition-all`}
-            >
-              {link.name}
-            </Link>
-          ))}
-          <Link href="/contact">
-            <Button 
-              className={`${
-                pathname === "/contact" 
-                  ? "text-white border-b-2 border-white" 
+                pathname === "/contact"
+                  ? "text-white border-b-2 border-white"
                   : ""
               }`}
-            >Contact Me</Button>
+            >
+              Contact Me
+            </Button>
           </Link>
         </nav>
       </SheetContent>
