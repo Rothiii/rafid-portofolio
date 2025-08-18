@@ -20,7 +20,7 @@ import { projects } from "@/data/project";
 const ProjectsPage = () => {
   const [project, setProject] = useState(projects[0] || null);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [selectedProject, setSelectedProject] = useState<typeof projects[number] | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [showScrollToTop, setShowScrollToTop] = useState(false);
