@@ -27,8 +27,8 @@ export const projects: Project[] = [
       { name: "Nginx" },
       { name: "Socket.IO" },
     ],
-    image: "/assets/projects/project1.png",
-    logo: "/assets/projects/logo-project1.png",
+    image: "/assets/projects/project-chatbot.jpg",
+    logo: "/assets/projects/logo-chatbot.png",
     github: "https://github.com/Rothiii/backend-random-chat-app/tree/chat",
   },
   {
@@ -44,7 +44,7 @@ export const projects: Project[] = [
       { name: "Nginx" },
     ],
     logo: "/assets/projects/logo-meraih.png",
-    image: "/assets/projects/project-attendance.png",
+    image: "/assets/projects/project-meraih.png",
     github: "https://github.com/Rothiii/backend_MeraihApp",
   },
   {
@@ -61,23 +61,23 @@ export const projects: Project[] = [
       { name: "PostgreSQL" },
       { name: "Nginx" },
     ],
-    logo: "/assets/projects/logo-project3.png",
-    image: "/assets/projects/project3.png",
+    logo: "/assets/projects/logo-imm.png",
+    image: "/assets/projects/project-imm.jpg",
   },
-  {
-    num: "04",
-    category: "Cloud & AI Integration",
-    title: "LLM-Integrated Health Chatbot @ Bangkit Academy",
-    description:
-      "A healthcare chatbot application developed in a team using Flutter, REST, and an LLM-integrated backend. The project involved building and deploying high-availability VM instances on Google Cloud and creating authentication APIs and a chat service that enabled real-time health assistant features.",
-    stack: [
-      { name: "Google Cloud" },
-      { name: "REST API" },
-      { name: "LLM" },
-      { name: "Flutter" },
-      { name: "FastAPI" },
-    ],
-    logo: "/assets/projects/logo-bangkit.png",
-    image: "/assets/projects/project-bangkit.png",
-  },
+  // {
+  //   num: "04",
+  //   category: "Cloud & AI Integration",
+  //   title: "LLM-Integrated Health Chatbot @ Bangkit Academy",
+  //   description:
+  //     "A healthcare chatbot application developed in a team using Flutter, REST, and an LLM-integrated backend. The project involved building and deploying high-availability VM instances on Google Cloud and creating authentication APIs and a chat service that enabled real-time health assistant features.",
+  //   stack: [
+  //     { name: "Google Cloud" },
+  //     { name: "REST API" },
+  //     { name: "LLM" },
+  //     { name: "Flutter" },
+  //     { name: "FastAPI" },
+  //   ],
+  //   logo: "/assets/projects/logo-bangkit.png",
+  //   image: "/assets/projects/project-bangkit.png",
+  // },
 ];
