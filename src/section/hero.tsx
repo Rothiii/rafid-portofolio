@@ -89,6 +89,7 @@ const HeroSection = () => {
             {/* button and socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <div className="mb-5 xl:mb-0">
+                <p className="text-white/80">Lets connect with me</p>
                 <Socials
                   containerStyles="flex gap-6"
                   iconStyles="w-8 h-8 border border-accent rounded-full flex items-center justify-center text-accent text-base hover:bg-accent hover:text-primary hover:transition-all duration-500"
