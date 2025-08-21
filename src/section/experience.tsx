@@ -2,7 +2,6 @@
 import { experience } from "@/data/experience";
 
 const ExperienceSection = () => {
-
   return (
     <section className="py-20 bg-primary">
       <div className="container mx-auto">
@@ -17,18 +16,15 @@ const ExperienceSection = () => {
         {/* Timeline */}
         <div className="relative max-w-4xl mx-auto">
           {/* Timeline Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-accent/30"></div>
+          <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5 bg-accent/30"></div>
 
           {experience.items.map((exp, index) => (
-            <div
-              key={index}
-              className="relative flex justify-center mb-12 last:mb-0"
-            >
+            <div key={index} className="relative flex mb-12 last:mb-0">
               {/* Timeline Dot */}
-              <div className="absolute left-6 w-4 h-4 bg-accent rounded-full border-5 border-primary z-10"></div>
+              <div className="absolute left-2.5 sm:left-6 w-4 h-4 bg-accent rounded-full border-4 border-primary z-10 mt-1"></div>
 
-              {/* Content - Centered with fixed width */}
-              <div className="w-full max-w-2xl">
+              {/* Content */}
+              <div className="w-full ml-12 sm:ml-16">
                 <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
                     <div>
