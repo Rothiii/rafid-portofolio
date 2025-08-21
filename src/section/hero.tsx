@@ -54,7 +54,7 @@ const HeroSection = () => {
   }, [charIndex, isTyping, currentRoleIndex, roles]);
 
   return (
-    <section className="h-screen">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       <div className="container mx-auto h-full">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-4 xl:pb-20 h-full">
           {/* text */}
