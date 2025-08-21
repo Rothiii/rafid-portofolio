@@ -1,49 +1,9 @@
 "use client";
+import { education } from "@/data/resume";
+import { FaCalendar, FaMedal } from "react-icons/fa";
+import { FaGraduationCap } from "react-icons/fa6";
 
 const EducationSection = () => {
-  const education = [
-    {
-      degree: "Full Stack Web Development",
-      institution: "Online Course Platform",
-      year: "2024",
-      description:
-        "Comprehensive full-stack development course covering modern web technologies",
-      icon: "💻",
-    },
-    {
-      degree: "Cloud Computing Cohort",
-      institution: "Bangkit Academy",
-      year: "Aug 2023 - Jan 2024",
-      description:
-        "Intensive 6-month program focusing on Google Cloud Platform and cloud architecture",
-      icon: "☁️",
-    },
-    {
-      degree: "Programming Course",
-      institution: "Coursera",
-      year: "Aug 2023 - Jan 2024",
-      description:
-        "Advanced programming concepts and software development practices",
-      icon: "👨‍💻",
-    },
-    {
-      degree: "Cloud Computing Course",
-      institution: "Google Cloud Skill Boost",
-      year: "2023 - Present",
-      description:
-        "Ongoing certification program for Google Cloud Platform services and solutions",
-      icon: "🏅",
-    },
-    {
-      degree: "Programming Course",
-      institution: "Dicoding",
-      year: "2021 - Present",
-      description:
-        "Continuous learning platform for Indonesian developers covering various programming topics",
-      icon: "📚",
-    },
-  ];
-
   return (
     <section className="py-20 bg-primary">
       <div className="container mx-auto">
@@ -59,22 +19,21 @@ const EducationSection = () => {
         {/* Timeline */}
         <div className="relative max-w-4xl mx-auto">
           {/* Timeline Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-accent/30"></div>
+          <div className="absolute left-1/4 transform -translate-x-px top-0 bottom-0 w-0.5 bg-accent/30"></div>
 
-          {education.map((edu, index) => (
+          {education.items.map((edu, index) => (
             <div
               key={index}
-              className="relative flex items-start mb-12 last:mb-0"
+              className="relative flex justify-center mb-12 last:mb-0"
             >
-              {/* Timeline Dot */}
-              <div className="absolute left-6 w-4 h-4 bg-accent rounded-full border-4 border-primary z-10"></div>
-
-              {/* Content */}
-              <div className="ml-20">
+              {/* Content - Centered with fixed width */}
+              <div className="w-full max-w-2xl">
                 <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-start flex-1">
-                      <span className="text-2xl mr-4 mt-1">{edu.icon}</span>
+                      <span className="text-2xl mr-4 mt-1">
+                        <FaGraduationCap />
+                      </span>
                       <div className="flex-1">
                         <h3 className="text-xl font-semibold text-white mb-2">
                           {edu.degree}
@@ -82,12 +41,21 @@ const EducationSection = () => {
                         <p className="text-accent font-medium mb-1">
                           {edu.institution}
                         </p>
-                        <p className="text-white/60 text-sm mb-3">
-                          {edu.year}
-                        </p>
-                        <p className="text-white/80 text-sm leading-relaxed">
-                          {edu.description}
-                        </p>
+                        <div className="flex items-start">
+                          <FaCalendar />
+                          <p className="text-white/60 text-sm ml-3 mb-3">
+                            {edu.duration}
+                          </p>
+                        </div>
+                        {edu.score && (
+                          <div className="flex items-start">
+                            <FaMedal />
+                            <p className="text-white/80 text-sm ml-3 leading-relaxed">
+                              {edu.score}
+                            </p>
+
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>

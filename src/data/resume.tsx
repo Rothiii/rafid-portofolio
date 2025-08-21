@@ -1,3 +1,4 @@
+import { JSX } from "react";
 import { FaJava } from "react-icons/fa";
 import {
   SiTailwindcss,
@@ -113,6 +114,7 @@ type EducationItem = {
   institution: string;
   duration: string;
   degree: string;
+  score?: string;
 };
 type Education = {
   icon: string;
@@ -127,29 +129,21 @@ export const education: Education = {
     "I have a strong educational background in computer science and web development. I have completed various courses and certifications that have equipped me with the necessary skills to excel in the field. My education has provided me with a solid foundation in programming languages, web technologies, and design principles.",
   items: [
     {
-      institution: "Online Course Platform",
-      degree: "Full Stack Web Development",
-      duration: "2024",
-    },
-    {
-      institution: "Coursera",
-      degree: "Programming Course",
-      duration: "Aug 2023 - Jan 2024",
-    },
-    {
-      institution: "Google Cloud Skill Boost",
-      degree: "Cloud Computing Course",
-      duration: "2023 - Present",
-    },
-    {
-      institution: "Dicoding",
-      degree: "Programming Course",
-      duration: "2021 - Present",
-    },
-    {
       institution: "Bangkit Academy",
-      degree: "Cloud Computing Cohort",
+      degree: "Cloud Computing",
       duration: "Aug 2023 - Jan 2024",
+    },
+    {
+      institution: "Kalimantan Institute of Technology",
+      degree: "Computer Science",
+      duration: "2021 - 2025",
+      score: "3.59/4.00"
+    },
+    {
+      institution: "Senior High School 5 Balikpapan",
+      degree: "Mathematics and Science",
+      duration: "2019 - 2021",
+      score: "87.93/100.00",
     },
   ],
 };
