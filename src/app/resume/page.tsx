@@ -13,7 +13,8 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 // data
-import { experience, education, skills, about } from "@/data/resume";
+import { education, skills, about } from "@/data/resume";
+import { experience } from "@/data/experience";
 
 const ResumePage = () => {
   return (
@@ -50,7 +51,7 @@ const ResumePage = () => {
                         key={index}
                         className="bg-[#232329] h-48 px-10 py-6 flex flex-col justify-center text-center items-start gap-1 rounded-xl"
                       >
-                        <span className="text-accent">{item.duration}</span>
+                        <span className="text-accent">{item.period}</span>
                         <h3 className="text-xl max-w-[340px] min-h-[64px] text-left lg:text-left">
                           {item.position}
                         </h3>

@@ -7,15 +7,27 @@ type ExperienceItem = {
   points: string[];
 };
 type Experience = {
+  title: string;
+  description: string;
   items: ExperienceItem[];
 };
 export const experience: Experience = {
+  title: "My Professional Experience",
+  description: "A brief overview of my work experience and skills.",
   items: [
     {
       company: "PT. Indominco Mandiri",
       position: "Backend Developer and DevOps",
       period: "Jun 2024 - Present",
-      technologies: ["NodeJs", "ExpressJs", "Docker", "Jenkins", "PostgreSQL", "Nginx", "PM2"],
+      technologies: [
+        "NodeJs",
+        "ExpressJs",
+        "Docker",
+        "Jenkins",
+        "PostgreSQL",
+        "Nginx",
+        "PM2",
+      ],
       points: [
         "Developed and maintained backend services using modern technologies",
         "Implemented DevOps practices for continuous integration and deployment",
@@ -63,7 +75,7 @@ export const experience: Experience = {
         "Kubernetes",
         "Terraform",
         "NodeJs",
-        "Virtual Machine"
+        "Virtual Machine",
       ],
       points: [
         "Learned cloud computing fundamentals and Google Cloud Platform services",
@@ -73,4 +85,4 @@ export const experience: Experience = {
       ],
     },
   ],
-}; 
+};
