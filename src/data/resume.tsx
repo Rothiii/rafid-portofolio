@@ -68,47 +68,6 @@ export const about: About = {
   ],
 };
 
-// experience data
-type ExperienceItem = {
-  company: string;
-  position: string;
-  duration: string;
-};
-type Experience = {
-  icon: string;
-  title: string;
-  description: string;
-  items: ExperienceItem[];
-};
-export const experience: Experience = {
-  title: "My Experience",
-  icon: "/assets/resume/badge.svg",
-  description:
-    "Throughout my career, I have gained valuable experience in various roles, including, front end development, UI/UX design, and back end development. I have worked with diverse teams and clients, honing my skills in web development and design. My experience has equipped me with a strong foundation in both technical and soft skills, allowing me to adapt to different challenges and deliver high-quality results.",
-  items: [
-    {
-      company: "PT. Indominco Mandiri",
-      position: "Backend Developer and DevOps",
-      duration: "Jun 2024 - Present",
-    },
-    {
-      company: "Project at Uni",
-      position: "Flutter Developer",
-      duration: "Aug 2024 - Nov 2024",
-    },
-    {
-      company: "Project Uni",
-      position: "Backend Developer",
-      duration: "Feb 2024 - May 2024",
-    },
-    {
-      company: "Bangkit Academy",
-      position: "Cloud Computing Cohort",
-      duration: "2015 - 2016",
-    },
-  ],
-};
-
 // educational data
 type EducationItem = {
   institution: string;

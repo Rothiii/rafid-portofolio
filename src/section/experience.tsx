@@ -1,68 +1,7 @@
 "use client";
+import { experience } from "@/data/experience";
 
 const ExperienceSection = () => {
-  const experiences = [
-    {
-      title: "Backend Developer and DevOps",
-      company: "PT. Indominco Mandiri",
-      period: "Jun 2024 - Present",
-      points: [
-        "Developed and maintained backend services using modern technologies",
-        "Implemented DevOps practices for continuous integration and deployment",
-        "Collaborated with cross-functional teams to deliver scalable solutions",
-        "Optimized application performance and monitoring systems",
-      ],
-      technologies: ["Java", "Docker", "Jenkins", "PostgreSQL", "GCP"],
-    },
-    {
-      title: "Flutter Developer",
-      company: "Project at Uni",
-      period: "Aug 2024 - Nov 2024",
-      points: [
-        "Built cross-platform mobile applications using Flutter framework",
-        "Implemented responsive UI designs and smooth user interactions",
-        "Integrated APIs and managed state management efficiently",
-        "Collaborated with team members using Git version control",
-      ],
-      technologies: ["Flutter", "Dart", "Firebase", "Git", "Figma"],
-    },
-    {
-      title: "Backend Developer",
-      company: "Project Uni",
-      period: "Feb 2024 - May 2024",
-      points: [
-        "Designed and developed RESTful APIs for web applications",
-        "Implemented database schemas and optimized query performance",
-        "Worked with team members to integrate frontend and backend systems",
-        "Applied software engineering best practices and code reviews",
-      ],
-      technologies: [
-        "Express.js",
-        "Node.js",
-        "PostgreSQL",
-        "JavaScript",
-        "Postman",
-      ],
-    },
-    {
-      title: "Cloud Computing Cohort",
-      company: "Bangkit Academy",
-      period: "Aug 2023 - Jan 2024",
-      points: [
-        "Learned cloud computing fundamentals and Google Cloud Platform services",
-        "Participated in hands-on projects involving cloud infrastructure",
-        "Collaborated with machine learning and mobile development cohorts",
-        "Completed capstone project demonstrating cloud computing skills",
-      ],
-      technologies: [
-        "Google Cloud",
-        "Docker",
-        "Kubernetes",
-        "Terraform",
-        "Python",
-      ],
-    },
-  ];
 
   return (
     <section className="py-20 bg-primary">
@@ -80,7 +19,7 @@ const ExperienceSection = () => {
           {/* Timeline Line */}
           <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-accent/30"></div>
 
-          {experiences.map((exp, index) => (
+          {experience.items.map((exp, index) => (
             <div
               key={index}
               className="relative flex justify-center mb-12 last:mb-0"
@@ -94,7 +33,7 @@ const ExperienceSection = () => {
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
                     <div>
                       <h3 className="text-xl font-semibold text-white mb-1">
-                        {exp.title}
+                        {exp.position}
                       </h3>
                       <p className="text-accent font-medium">{exp.company}</p>
                     </div>
