@@ -10,9 +10,9 @@ const ExperienceSection = () => {
         "Developed and maintained backend services using modern technologies",
         "Implemented DevOps practices for continuous integration and deployment",
         "Collaborated with cross-functional teams to deliver scalable solutions",
-        "Optimized application performance and monitoring systems"
+        "Optimized application performance and monitoring systems",
       ],
-      technologies: ["Java", "Docker", "Jenkins", "PostgreSQL", "GCP"]
+      technologies: ["Java", "Docker", "Jenkins", "PostgreSQL", "GCP"],
     },
     {
       title: "Flutter Developer",
@@ -22,9 +22,9 @@ const ExperienceSection = () => {
         "Built cross-platform mobile applications using Flutter framework",
         "Implemented responsive UI designs and smooth user interactions",
         "Integrated APIs and managed state management efficiently",
-        "Collaborated with team members using Git version control"
+        "Collaborated with team members using Git version control",
       ],
-      technologies: ["Flutter", "Dart", "Firebase", "Git", "Figma"]
+      technologies: ["Flutter", "Dart", "Firebase", "Git", "Figma"],
     },
     {
       title: "Backend Developer",
@@ -34,9 +34,15 @@ const ExperienceSection = () => {
         "Designed and developed RESTful APIs for web applications",
         "Implemented database schemas and optimized query performance",
         "Worked with team members to integrate frontend and backend systems",
-        "Applied software engineering best practices and code reviews"
+        "Applied software engineering best practices and code reviews",
       ],
-      technologies: ["Express.js", "Node.js", "PostgreSQL", "JavaScript", "Postman"]
+      technologies: [
+        "Express.js",
+        "Node.js",
+        "PostgreSQL",
+        "JavaScript",
+        "Postman",
+      ],
     },
     {
       title: "Cloud Computing Cohort",
@@ -46,10 +52,16 @@ const ExperienceSection = () => {
         "Learned cloud computing fundamentals and Google Cloud Platform services",
         "Participated in hands-on projects involving cloud infrastructure",
         "Collaborated with machine learning and mobile development cohorts",
-        "Completed capstone project demonstrating cloud computing skills"
+        "Completed capstone project demonstrating cloud computing skills",
       ],
-      technologies: ["Google Cloud", "Docker", "Kubernetes", "Terraform", "Python"]
-    }
+      technologies: [
+        "Google Cloud",
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "Python",
+      ],
+    },
   ];
 
   return (
@@ -69,12 +81,15 @@ const ExperienceSection = () => {
           <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-accent/30"></div>
 
           {experiences.map((exp, index) => (
-            <div key={index} className="relative flex items-start mb-12 last:mb-0">
+            <div
+              key={index}
+              className="relative flex justify-center mb-12 last:mb-0"
+            >
               {/* Timeline Dot */}
-              <div className="absolute left-6 w-4 h-4 bg-accent rounded-full border-4 border-primary z-10"></div>
+              <div className="absolute left-6 w-4 h-4 bg-accent rounded-full border-5 border-primary z-10"></div>
 
-              {/* Content */}
-              <div className="ml-20">
+              {/* Content - Centered with fixed width */}
+              <div className="w-full max-w-2xl">
                 <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
                     <div>
