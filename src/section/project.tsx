@@ -34,7 +34,9 @@ const ProjectSection = () => {
 
   return (
     <>
-      <section className="py-20 bg-primary relative min-h-screen">
+      <section 
+      id="projects"
+      className="py-20 bg-primary relative min-h-screen">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <Image
