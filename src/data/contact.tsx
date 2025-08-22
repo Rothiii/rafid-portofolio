@@ -1,4 +1,4 @@
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 type Info = {
     icon: JSX.Element;
@@ -23,3 +23,10 @@ export const info: Info[] = [
     description: "Balikpapan, East Kalimantan, Indonesia",
   },
 ];
+
+export const socialLinks = [
+    { name: "GitHub", icon: <FaGithub />, link: "https://github.com/rothiii", handle: "@Rothiii" },
+    { name: "LinkedIn", icon: <FaLinkedin />, link: "https://www.linkedin.com/in/rafid-al-khairy/", handle: "Rafid Al Khairy" },
+    { name: "Instagram", icon: <FaInstagram />, link: "https://www.instagram.com/rafidal._/", handle: "@rafidal._" },
+    { name: "Email", icon: <FaEnvelope />, link: "mailto:drome.emord@gmail.com", handle: "drome.emord@gmail.com" },
+  ];
