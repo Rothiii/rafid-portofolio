@@ -3,7 +3,10 @@ import { socialLinks } from "@/data/contact";
 
 const ContactSection = () => {
   return (
-    <section className="py-20 bg-gradient-to-t from-black/30 via-transparent to-transparent">
+    <section
+      id="contact"
+      className="py-20 bg-gradient-to-t from-black/30 via-transparent to-transparent"
+    >
       <div className="container mx-auto relative z-10">
         {/* Title */}
         <div className="text-center mb-16">

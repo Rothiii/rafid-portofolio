@@ -5,7 +5,10 @@ import { FaGraduationCap } from "react-icons/fa6";
 
 const EducationSection = () => {
   return (
-    <section className="py-12 xl:py-24 bg-gradient-to-t from-black/30 via-transparent to-transparent">
+    <section
+      id="education"
+      className="py-12 xl:py-24 bg-gradient-to-t from-black/30 via-transparent to-transparent"
+    >
       <div className="container mx-auto">
         {/* Title */}
         <div className="text-center mb-16">
