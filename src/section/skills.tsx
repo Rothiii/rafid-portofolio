@@ -2,7 +2,11 @@
 
 const SkillsSection = () => {
   const skills = [
-    { name: "JavaScript", icon: "🟨", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+    {
+      name: "JavaScript",
+      icon: "🟨",
+      url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    },
     { name: "TypeScript", icon: "🔷", url: "https://www.typescriptlang.org/" },
     { name: "React", icon: "⚛️", url: "https://reactjs.org/" },
     { name: "Next.js", icon: "▲", url: "https://nextjs.org/" },
@@ -15,15 +19,19 @@ const SkillsSection = () => {
     { name: "PostgreSQL", icon: "🐘", url: "https://www.postgresql.org/" },
     { name: "MongoDB", icon: "🍃", url: "https://www.mongodb.com/" },
     { name: "Git", icon: "🔧", url: "https://git-scm.com/" },
-    { name: "Google Cloud Platform", icon: "☁️", url: "https://cloud.google.com/" },
+    {
+      name: "Google Cloud Platform",
+      icon: "☁️",
+      url: "https://cloud.google.com/",
+    },
     { name: "Firebase", icon: "🔥", url: "https://firebase.google.com/" },
     { name: "Tailwind CSS", icon: "🌀", url: "https://tailwindcss.com/" },
     { name: "Figma", icon: "🎨", url: "https://www.figma.com/" },
-    { name: "Postman", icon: "📦", url: "https://www.postman.com/" }
+    { name: "Postman", icon: "📦", url: "https://www.postman.com/" },
   ];
 
   return (
-    <section className="py-20 bg-primary">
+    <section className="py-12 xl:py-24 bg-gradient-to-t from-black/30 via-transparent to-transparent">
       <div className="container mx-auto">
         {/* Title */}
         <div className="text-center mb-16">
