@@ -11,6 +11,7 @@ export const links = [
   {
     name: "Resume",
     path: "/resume",
+    hidden: true,
   },
   {
     name: "Projects",

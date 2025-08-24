@@ -1,18 +1,13 @@
 "use client";
+import { socialLinks } from "@/data/contact";
 
 const ContactSection = () => {
-  const socialLinks = [
-    { name: "GitHub", icon: "🐙", link: "#", handle: "@rafidalkhairy" },
-    { name: "LinkedIn", icon: "💼", link: "#", handle: "Rafid Al Khairy" },
-    { name: "Twitter", icon: "🐦", link: "#", handle: "@rafidalkhairy" },
-    { name: "Instagram", icon: "📷", link: "#", handle: "@rafidalkhairy" },
-    { name: "Email", icon: "📧", link: "#", handle: "rafid@example.com" },
-    { name: "Discord", icon: "🎮", link: "#", handle: "rafid#1234" },
-  ];
-
   return (
-    <section className="py-20 bg-primary">
-      <div className="container mx-auto">
+    <section
+      id="contact"
+      className="py-20 bg-gradient-to-t from-black/30 via-transparent to-transparent"
+    >
+      <div className="container mx-auto relative z-10">
         {/* Title */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-white mb-4">Get In Touch</h2>
@@ -66,6 +61,8 @@ const ContactSection = () => {
               <a
                 key={index}
                 href={social.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-accent/50 hover:scale-105 transition-all duration-300"
               >
                 <div className="flex items-center space-x-4">
