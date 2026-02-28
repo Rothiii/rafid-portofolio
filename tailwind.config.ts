@@ -51,6 +51,7 @@ const config = {
   },
   plugins: [
     require("tailwindcss-animate"),
+    require("@tailwindcss/typography"),
     function ({ addUtilities }: any) {
       const newUtilities = {
         ".text-outline": {
