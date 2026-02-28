@@ -5,14 +5,16 @@ import { useState, useEffect } from "react";
 // components
 import Photo from "@/components/Photo";
 import Socials from "@/components/Socials";
+import { FiDownload } from "react-icons/fi";
+
+const roles = [
+  "Software Engineer",
+  "Data Engineer Enthusiast",
+  "Cloud/DevOps Enthusiast",
+  "Backend Engineer",
+];
 
 const HeroSection = () => {
-  const roles = [
-    "Software Engineer",
-    "Data Engineer Enthusiast",
-    "Cloud/DevOps Enthusiast",
-    "Backend Engineer",
-  ];
 
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
@@ -51,7 +53,7 @@ const HeroSection = () => {
         setIsTyping(true);
       }
     }
-  }, [charIndex, isTyping, currentRoleIndex, roles]);
+  }, [charIndex, isTyping, currentRoleIndex]);
 
   return (
     <section
@@ -98,6 +100,14 @@ const HeroSection = () => {
                   iconStyles="w-8 h-8 border border-accent rounded-full flex items-center justify-center text-accent text-base hover:bg-accent hover:text-primary hover:transition-all duration-500"
                 />
               </div>
+              <a
+                href="/assets/resume.pdf"
+                download
+                className="inline-flex items-center gap-2 px-6 py-3 border border-accent text-accent rounded-full hover:bg-accent hover:text-primary transition-all duration-500 text-sm font-medium"
+              >
+                <FiDownload className="text-lg" />
+                Download CV
+              </a>
             </div>
           </div>
 
