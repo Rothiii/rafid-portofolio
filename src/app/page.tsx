@@ -1,5 +1,3 @@
-"use client";
-
 // sections
 import HeroSection from "@/section/hero";
 import AboutSection from "@/section/about";
@@ -8,6 +6,7 @@ import ProjectSection from "@/section/project";
 import ExperienceSection from "@/section/experience";
 import EducationSection from "@/section/education";
 import ContactSection from "@/section/contact";
+import BlogSection from "@/section/blog";
 
 const HomePage = () => {
   return (
@@ -23,6 +22,9 @@ const HomePage = () => {
 
       {/* Projects Section */}
       <ProjectSection />
+
+      {/* Blog Section */}
+      <BlogSection />
 
       {/* Experience Section */}
       <ExperienceSection />

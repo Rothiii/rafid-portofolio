@@ -1,5 +1,6 @@
 "use client";
 import { socialLinks } from "@/data/contact";
+import Link from "next/link";
 
 const ContactSection = () => {
   return (
@@ -57,9 +58,9 @@ const ContactSection = () => {
 
           {/* Right Column - Contact List */}
           <div className="space-y-4">
-            {socialLinks.map((social, index) => (
+            {socialLinks.map((social) => (
               <a
-                key={index}
+                key={social.name}
                 href={social.link}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -78,6 +79,15 @@ const ContactSection = () => {
               </a>
             ))}
           </div>
+        </div>
+
+        {/* Send Email Button */}
+        <div className="text-center mt-12">
+          <Link href="/contact">
+            <button className="px-8 py-3 bg-accent text-primary font-medium rounded-full hover:bg-accent/90 transition-colors duration-200">
+              Send Me a Message
+            </button>
+          </Link>
         </div>
       </div>
     </section>
