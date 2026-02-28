@@ -1,4 +1,3 @@
-"use client";
 import { experience } from "@/data/experience";
 
 const ExperienceSection = () => {
@@ -21,8 +20,8 @@ const ExperienceSection = () => {
           {/* Timeline Line */}
           <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5 bg-accent/30"></div>
 
-          {experience.items.map((exp, index) => (
-            <div key={index} className="relative flex mb-12 last:mb-0">
+          {experience.items.map((exp) => (
+            <div key={`${exp.company}-${exp.period}`} className="relative flex mb-12 last:mb-0">
               {/* Timeline Dot */}
               <div className="absolute left-2.5 sm:left-6 w-4 h-4 bg-accent rounded-full border-4 border-primary z-10 mt-1"></div>
 
@@ -52,9 +51,9 @@ const ExperienceSection = () => {
 
                   {/* Technologies */}
                   <div className="flex flex-wrap gap-2">
-                    {exp.technologies.map((tech, techIndex) => (
+                    {exp.technologies.map((tech) => (
                       <span
-                        key={techIndex}
+                        key={tech}
                         className="px-3 py-1 bg-accent/20 text-accent text-xs rounded-full"
                       >
                         {tech}

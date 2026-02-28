@@ -24,9 +24,9 @@ const EducationSection = () => {
           {/* Timeline Line */}
           <div className="absolute left-1/4 transform -translate-x-px top-0 bottom-0 w-0.5 bg-accent/30"></div>
 
-          {education.items.map((edu, index) => (
+          {education.items.map((edu) => (
             <div
-              key={index}
+              key={`${edu.institution}-${edu.degree}`}
               className="relative flex justify-center mb-12 last:mb-0"
             >
               {/* Content - Centered with fixed width */}
