@@ -1,5 +1,3 @@
-"use client";
-
 const SkillsSection = () => {
   const skills = [
     {
@@ -11,7 +9,6 @@ const SkillsSection = () => {
     { name: "React", icon: "⚛️", url: "https://reactjs.org/" },
     { name: "Next.js", icon: "▲", url: "https://nextjs.org/" },
     { name: "Node.js", icon: "🟢", url: "https://nodejs.org/" },
-    { name: "Next.js", icon: "▲", url: "https://nextjs.org/" },
     { name: "Python", icon: "🐍", url: "https://www.python.org/" },
     { name: "Java", icon: "☕", url: "https://www.java.com/" },
     { name: "Docker", icon: "🐳", url: "https://www.docker.com/" },
@@ -28,6 +25,15 @@ const SkillsSection = () => {
     { name: "Tailwind CSS", icon: "🌀", url: "https://tailwindcss.com/" },
     { name: "Figma", icon: "🎨", url: "https://www.figma.com/" },
     { name: "Postman", icon: "📦", url: "https://www.postman.com/" },
+    { name: "Vue", icon: "🟩", url: "https://vuejs.org/" },
+    { name: "Nuxt", icon: "🟩", url: "https://nuxt.com/" },
+    { name: "Flutter", icon: "🦋", url: "https://flutter.dev/" },
+    { name: "Dart", icon: "🎯", url: "https://dart.dev/" },
+    { name: "WebSocket", icon: "🔌", url: "https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API" },
+    { name: "Redis", icon: "🔴", url: "https://redis.io/" },
+    { name: "Cache", icon: "💾", url: "#" },
+    { name: "Nginx", icon: "🟢", url: "https://nginx.org/" },
+    { name: "PM2", icon: "🔧", url: "https://pm2.keymetrics.io/" },
   ];
 
   return (
@@ -46,9 +52,9 @@ const SkillsSection = () => {
 
         {/* Skills Grid */}
         <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
-          {skills.map((skill, index) => (
+          {skills.map((skill) => (
             <div
-              key={index}
+              key={skill.name}
               className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 hover:border-accent/50 hover:scale-105 transition-all duration-300 flex flex-col items-center"
             >
               <div className="text-4xl mb-3">{skill.icon}</div>
