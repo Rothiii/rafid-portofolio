@@ -12,13 +12,27 @@ import { Analytics } from "@vercel/analytics/next"
 
 const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-jetBrainsMono",
 });
 
 export const metadata: Metadata = {
-  title: "Rafid Al Khairy Portofolio",
-  description: "Web portofolio of Rafid Al Khairy",
+  title: "Rafid Al Khairy - Software Engineer Portfolio",
+  description:
+    "Software Engineer specializing in backend development, cloud architecture, and full-stack solutions.",
+  keywords: [
+    "software engineer",
+    "backend developer",
+    "full-stack developer",
+    "portfolio",
+    "Rafid Al Khairy",
+  ],
+  openGraph: {
+    title: "Rafid Al Khairy - Software Engineer",
+    description:
+      "Software Engineer specializing in backend development, cloud architecture, and full-stack solutions.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

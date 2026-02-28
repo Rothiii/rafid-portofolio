@@ -146,12 +146,13 @@ const ProjectsPage = () => {
             speed={800}
           >
             {projects.map((projectItem, index) => (
-              <SwiperSlide key={index} className="w-full h-full">
+              <SwiperSlide key={projectItem.num} className="w-full h-full">
                 <div className="relative w-full h-full">
                   {/* Project Background Image */}
                   <Image
                     src={projectItem.image}
                     fill
+                    sizes="100vw"
                     className="object-cover"
                     alt={projectItem.title}
                     priority={index === 0}
@@ -165,6 +166,7 @@ const ProjectsPage = () => {
                       <Image
                         src={projectItem.logo}
                         fill
+                        sizes="64px"
                         className="object-contain"
                         alt={`${projectItem.title} logo`}
                       />
@@ -231,7 +233,7 @@ const ProjectsPage = () => {
                   >
                     {project.stack.map((item, index) => (
                       <motion.span
-                        key={index}
+                        key={item.name}
                         className="px-3 py-1 bg-accent/20 text-accent text-sm font-medium rounded-full border border-accent/30"
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -327,7 +329,7 @@ const ProjectsPage = () => {
           >
             {currentProjects.map((projectItem, index) => (
               <motion.div
-                key={index}
+                key={projectItem.num}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 * index }}
@@ -341,6 +343,7 @@ const ProjectsPage = () => {
                     <Image
                       src={projectItem.image}
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       className="object-cover transition-transform duration-300 group-hover:scale-110"
                       alt={projectItem.title}
                     />
@@ -358,6 +361,7 @@ const ProjectsPage = () => {
                         <Image
                           src={projectItem.logo}
                           fill
+                          sizes="32px"
                           className="object-contain"
                           alt={`${projectItem.title} logo`}
                         />
@@ -402,9 +406,9 @@ const ProjectsPage = () => {
 
                     {/* Tech Stack Preview */}
                     <div className="flex flex-wrap gap-1">
-                      {projectItem.stack.slice(0, 3).map((tech, techIndex) => (
+                      {projectItem.stack.slice(0, 3).map((tech) => (
                         <span
-                          key={techIndex}
+                          key={tech.name}
                           className="px-2 py-1 bg-accent/20 text-accent text-xs rounded-full"
                         >
                           {tech.name}
@@ -578,6 +582,7 @@ const ProjectsPage = () => {
               <Image
                 src={selectedProject.image}
                 fill
+                sizes="90vw"
                 className="object-cover"
                 alt={selectedProject.title}
               />
@@ -599,6 +604,7 @@ const ProjectsPage = () => {
                     <Image
                       src={selectedProject.logo}
                       fill
+                      sizes="64px"
                       className="object-contain"
                       alt={`${selectedProject.title} logo`}
                     />
@@ -636,9 +642,9 @@ const ProjectsPage = () => {
                         {/* Technology Stack */}
                         <div className="flex flex-wrap gap-2">
                           {selectedProject.stack.map(
-                            (item: { name: string }, index: number) => (
+                            (item: { name: string }) => (
                               <span
-                                key={index}
+                                key={item.name}
                                 className="px-3 py-1 md:px-4 md:py-2 bg-accent/20 text-accent text-xs md:text-sm font-medium rounded-full border border-accent/30"
                               >
                                 {item.name}

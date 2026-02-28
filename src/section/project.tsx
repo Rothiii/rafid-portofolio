@@ -42,6 +42,7 @@ const ProjectSection = () => {
           <Image
             src={selectedProject.image}
             fill
+            sizes="100vw"
             className="object-cover transition-all duration-1000"
             alt={selectedProject.title}
             priority
@@ -55,6 +56,7 @@ const ProjectSection = () => {
               <Image
                 src={selectedProject.logo}
                 fill
+                sizes="64px"
                 className="object-contain"
                 alt={`${selectedProject.title} logo`}
               />
@@ -91,9 +93,9 @@ const ProjectSection = () => {
                 </p>
 
                 <div className="flex flex-wrap gap-2">
-                  {selectedProject.stack.map((item, index) => (
+                  {selectedProject.stack.map((item) => (
                     <span
-                      key={index}
+                      key={item.name}
                       className="px-3 py-1 bg-accent/20 text-accent text-sm font-medium rounded-full border border-accent/30"
                     >
                       {item.name}
@@ -148,9 +150,9 @@ const ProjectSection = () => {
 
           {/* Project Navigation Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-            {latestProjects.map((project, index) => (
+            {latestProjects.map((project) => (
               <div
-                key={index}
+                key={project.num}
                 onClick={() => {
                   setSelectedProject(project);
                   // On mobile, open modal instead of just changing background
@@ -169,6 +171,7 @@ const ProjectSection = () => {
                   <Image
                     src={project.image}
                     fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                     alt={project.title}
                   />
@@ -180,6 +183,7 @@ const ProjectSection = () => {
                       <Image
                         src={project.logo}
                         fill
+                        sizes="32px"
                         className="object-contain"
                         alt=""
                       />
@@ -269,6 +273,7 @@ const ProjectSection = () => {
               <Image
                 src={modalProject.image}
                 fill
+                sizes="95vw"
                 className="object-cover"
                 alt={modalProject.title}
               />
@@ -284,6 +289,7 @@ const ProjectSection = () => {
                   <Image
                     src={modalProject.logo}
                     fill
+                    sizes="48px"
                     className="object-contain"
                     alt={`${modalProject.title} logo`}
                   />
@@ -306,9 +312,9 @@ const ProjectSection = () => {
                 </p>
 
                 <div className="flex flex-wrap gap-2">
-                  {modalProject.stack.map((item, index) => (
+                  {modalProject.stack.map((item) => (
                     <span
-                      key={index}
+                      key={item.name}
                       className="px-3 py-1 bg-accent/20 text-accent text-sm rounded-full border border-accent/30"
                     >
                       {item.name}
