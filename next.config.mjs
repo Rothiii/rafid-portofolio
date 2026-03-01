@@ -14,17 +14,6 @@ const nextConfig = {
     return config;
   },
   
-  // Reduce the number of cache layers
-  experimental: {
-    turbotrace: {
-      contextDirectory: process.cwd(),
-    },
-    outputFileTracingIncludes: {
-      '/api/*': ['./node_modules/styled-jsx/**/*'],
-    },
-  },
-
-  // Disable SWC minify to reduce build complexity if needed
   swcMinify: true,
 };
 
