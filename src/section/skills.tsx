@@ -39,13 +39,13 @@ const SkillsSection = () => {
   return (
     <section
       id="skills"
-      className="py-12 xl:py-24 bg-gradient-to-t from-black/30 via-transparent to-transparent"
+      className="py-12 xl:py-24 bg-gradient-to-t from-theme-fg/[0.04] via-transparent to-transparent"
     >
       <div className="container mx-auto">
         {/* Title */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-white mb-4">Skills</h2>
-          <p className="text-white/80 text-lg max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4">Skills</h2>
+          <p className="text-theme-fg/80 text-lg max-w-2xl mx-auto">
             Technologies and tools I work with to bring ideas to life
           </p>
         </div>
@@ -55,10 +55,10 @@ const SkillsSection = () => {
           {skills.map((skill) => (
             <div
               key={skill.name}
-              className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 hover:border-accent/50 hover:scale-105 transition-all duration-300 flex flex-col items-center"
+              className="bg-theme-fg/5 backdrop-blur-sm rounded-xl p-5 border border-theme-fg/10 hover:border-accent/50 hover:scale-105 transition-all duration-300 flex flex-col items-center"
             >
               <div className="text-4xl mb-3">{skill.icon}</div>
-              <span className="text-white/90 text-sm font-medium text-center">
+              <span className="text-theme-fg/90 text-sm font-medium text-center">
                 {skill.name}
               </span>
             </div>

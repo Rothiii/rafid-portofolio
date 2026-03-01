@@ -10,7 +10,7 @@ import BlogSection from "@/section/blog";
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-primary">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <HeroSection />
 

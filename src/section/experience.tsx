@@ -4,13 +4,13 @@ const ExperienceSection = () => {
   return (
     <section
       id="experience"
-      className="py-12 xl:py-24 bg-gradient-to-t from-black/30 via-transparent to-transparent"
+      className="py-12 xl:py-24 bg-gradient-to-t from-theme-fg/[0.04] via-transparent to-transparent"
     >
       <div className="container mx-auto">
         {/* Title */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-white mb-4">Experience</h2>
-          <p className="text-white/80 text-lg max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4">Experience</h2>
+          <p className="text-theme-fg/80 text-lg max-w-2xl mx-auto">
             My journey from hello world to building real-world applications.
           </p>
         </div>
@@ -23,24 +23,24 @@ const ExperienceSection = () => {
           {experience.items.map((exp) => (
             <div key={`${exp.company}-${exp.period}`} className="relative flex mb-12 last:mb-0">
               {/* Timeline Dot */}
-              <div className="absolute left-2.5 sm:left-6 w-4 h-4 bg-accent rounded-full border-4 border-primary z-10 mt-1"></div>
+              <div className="absolute left-2.5 sm:left-6 w-4 h-4 bg-accent rounded-full border-4 border-page-bg z-10 mt-1"></div>
 
               {/* Content */}
               <div className="w-full ml-12 sm:ml-16">
-                <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+                <div className="bg-theme-fg/5 backdrop-blur-sm rounded-xl p-6 border border-theme-fg/10">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
                     <div>
-                      <h3 className="text-xl font-semibold text-white mb-1">
+                      <h3 className="text-xl font-semibold mb-1">
                         {exp.position}
                       </h3>
                       <p className="text-accent font-medium">{exp.company}</p>
                     </div>
-                    <span className="text-white/60 text-sm mt-2 sm:mt-0">
+                    <span className="text-theme-fg/60 text-sm mt-2 sm:mt-0">
                       {exp.period}
                     </span>
                   </div>
 
-                  <ul className="text-white/80 text-sm mb-4 space-y-2">
+                  <ul className="text-theme-fg/80 text-sm mb-4 space-y-2">
                     {exp.points.map((point, pointIndex) => (
                       <li key={pointIndex} className="flex items-start">
                         <span className="text-accent mr-2 mt-1">•</span>

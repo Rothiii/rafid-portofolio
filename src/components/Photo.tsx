@@ -22,7 +22,7 @@ const Photo = () => {
           cx={253}
           cy={253}
           r={250}
-          stroke="#00ff99"
+          stroke="rgb(var(--color-accent))"
           strokeWidth={4}
           strokeLinecap="round"
           strokeLinejoin="round"

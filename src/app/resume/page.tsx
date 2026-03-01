@@ -41,7 +41,7 @@ const ResumePage = () => {
             <TabsContent value="experience" className="w-full">
               <div className="flex flex-col gap-[32px] text-center xl:text-left">
                 <h3 className="text-4xl font-bold">{experience.title}</h3>
-                <p className="text-white/80 mx-auto xl:mx-0 text-justify">
+                <p className="text-theme-fg/80 mx-auto xl:mx-0 text-justify">
                   {experience.description}
                 </p>
                 <ScrollArea className="h-[480px]">
@@ -49,7 +49,7 @@ const ResumePage = () => {
                     {experience.items.map((item, index) => (
                       <li
                         key={index}
-                        className="bg-[#232329] h-48 px-10 py-6 flex flex-col justify-center text-center items-start gap-1 rounded-xl"
+                        className="bg-stone-100 dark:bg-[#232329] h-48 px-10 py-6 flex flex-col justify-center text-center items-start gap-1 rounded-xl"
                       >
                         <span className="text-accent">{item.period}</span>
                         <h3 className="text-xl max-w-[340px] min-h-[64px] text-left lg:text-left">
@@ -57,7 +57,7 @@ const ResumePage = () => {
                         </h3>
                         <div className="flex items-center gap-3">
                           <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                          <p className="text-white/60">{item.company}</p>
+                          <p className="text-theme-fg/60">{item.company}</p>
                         </div>
                       </li>
                     ))}
@@ -70,7 +70,7 @@ const ResumePage = () => {
             <TabsContent value="education" className="w-full">
               <div className="flex flex-col gap-[32px] text-center xl:text-left">
                 <h3 className="text-4xl font-bold">{education.title}</h3>
-                <p className="text-white/80 mx-auto xl:mx-0 text-justify">
+                <p className="text-theme-fg/80 mx-auto xl:mx-0 text-justify">
                   {education.description}
                 </p>
                 <ScrollArea className="h-[480px]">
@@ -78,7 +78,7 @@ const ResumePage = () => {
                     {education.items.map((item, index) => (
                       <li
                         key={index}
-                        className="bg-[#232329] h-48 px-10 py-6 flex flex-col justify-center text-start lg:items-start gap-1 rounded-xl"
+                        className="bg-stone-100 dark:bg-[#232329] h-48 px-10 py-6 flex flex-col justify-center text-start lg:items-start gap-1 rounded-xl"
                       >
                         <span className="text-accent">{item.duration}</span>
                         <h3 className="text-xl max-w-[340px] min-h-[64px] text-start lg:text-left">
@@ -86,7 +86,7 @@ const ResumePage = () => {
                         </h3>
                         <div className="flex items-center gap-3">
                           <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                          <p className="text-white/60">{item.institution}</p>
+                          <p className="text-theme-fg/60">{item.institution}</p>
                         </div>
                       </li>
                     ))}
@@ -99,7 +99,7 @@ const ResumePage = () => {
             <TabsContent value="skills" className="w-full h-full">
               <div className="flex flex-col gap-[32px] text-center xl:text-left">
                 <h3 className="text-4xl font-bold">{skills.title}</h3>
-                <p className="text-white/80 mx-auto xl:mx-0 text-justify">
+                <p className="text-theme-fg/80 mx-auto xl:mx-0 text-justify">
                   {skills.description}
                 </p>
                 <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[32px]">
@@ -107,7 +107,7 @@ const ResumePage = () => {
                     <li key={index}>
                       <TooltipProvider delayDuration={100}>
                         <Tooltip>
-                          <TooltipTrigger className="w-full h-[160px] bg-[#232329] rounded-xl flex justify-center items-center group">
+                          <TooltipTrigger className="w-full h-[160px] bg-stone-100 dark:bg-[#232329] rounded-xl flex justify-center items-center group">
                             <div className="text-6xl group-hover:text-accent transition-all duration-300">
                               {item.icon}
                             </div>
@@ -130,7 +130,7 @@ const ResumePage = () => {
             >
               <div className="flex flex-col gap-[32px] text-center xl:text-left">
                 <h3 className="text-4xl font-bold">{about.title}</h3>
-                <p className="text-white/80 mx-auto xl:mx-0 text-justify">
+                <p className="text-theme-fg/80 mx-auto xl:mx-0 text-justify">
                   {about.description}
                 </p>
                 <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 mx-auto xl:mx-0">
@@ -139,7 +139,7 @@ const ResumePage = () => {
                       key={index}
                       className="flex items-center justify-center xl:justify-start gap-4 "
                     >
-                      <span className="text-white/60">{item.name}</span>
+                      <span className="text-theme-fg/60">{item.name}</span>
                       <span className="text-xl">{item.value}</span>
                     </li>
                   ))}

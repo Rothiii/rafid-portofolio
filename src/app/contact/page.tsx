@@ -94,10 +94,10 @@ const ContactPage = () => {
           <div className="xl:w-[54%] order-2 xl:order-none">
             <form
               onSubmit={handleSubmit}
-              className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl"
+              className="flex flex-col gap-6 p-10 bg-stone-100 dark:bg-[#27272c] rounded-xl"
             >
               <h3 className="text-4xl text-accent">Let's work together</h3>
-              <p className="text-white/60">
+              <p className="text-theme-fg/60">
                 I'd love to hear about your project. Fill in the form below and
                 I'll get back to you as soon as possible.
               </p>
@@ -179,11 +179,11 @@ const ContactPage = () => {
             <ul className="flex flex-col gap-10">
               {info.map((item) => (
                 <li key={item.title} className="flex items-center gap-6">
-                  <div className="w-[48px] h-[48px] xl:w-[72px] xl:h-[72px] bg-[#27272c] text-accent rounded-md flex items-center justify-center">
+                  <div className="w-[48px] h-[48px] xl:w-[72px] xl:h-[72px] bg-stone-100 dark:bg-[#27272c] text-accent rounded-md flex items-center justify-center">
                     <div className="text-[24px]">{item.icon}</div>
                   </div>
                   <div className="flex-1">
-                    <p className="text-white/60">{item.title}</p>
+                    <p className="text-theme-fg/60">{item.title}</p>
                     <h3 className="text-xl">{item.description}</h3>
                   </div>
                 </li>

@@ -4,6 +4,13 @@
 
 @layer base {
     :root {
+        /* Theme colors */
+        --page-bg: #faf8f5;
+        --color-foreground: 26 21 16;
+        --card-surface: 26 21 16;
+        --color-accent: 5 150 105;
+        --color-accent-hover: 4 120 87;
+
         --background: 0 0% 100%;
         --foreground: 222.2 84% 4.9%;
         --card: 0 0% 100%;
@@ -32,6 +39,13 @@
     }
 
     .dark {
+        /* Theme colors */
+        --page-bg: #1c1c22;
+        --color-foreground: 255 255 255;
+        --card-surface: 255 255 255;
+        --color-accent: 0 255 153;
+        --color-accent-hover: 0 225 135;
+
         --background: 222.2 84% 4.9%;
         --foreground: 210 40% 98%;
         --card: 222.2 84% 4.9%;
@@ -61,7 +75,10 @@
 
 @layer base {
     body {
-        @apply font-primary bg-primary text-white leading-loose;
+        @apply font-primary leading-loose;
+        background-color: var(--page-bg);
+        color: rgb(var(--color-foreground));
+        transition: background-color 0.3s ease, color 0.3s ease;
     }
     .h1 {
         @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold;
@@ -73,11 +90,11 @@
         @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold;
     }
     .text-outline {
-        -webkit-text-stroke: 1px #ffffff;
+        -webkit-text-stroke: 1px rgb(var(--color-foreground));
     }
 
     .text-outline-hover {
-        -webkit-text-stroke: 1px #00ff99;
+        -webkit-text-stroke: 1px rgb(var(--color-accent));
     }
 }
 

@@ -19,10 +19,10 @@ export default function ServerCapacityError() {
           className="text-center"
         >
           <h1 className="text-6xl font-bold text-accent mb-4">503</h1>
-          <h2 className="text-3xl font-semibold text-white mb-6">
+          <h2 className="text-3xl font-semibold mb-6">
             Server at Capacity
           </h2>
-          <p className="text-white/60 text-lg mb-8 max-w-md mx-auto">
+          <p className="text-theme-fg/60 text-lg mb-8 max-w-md mx-auto">
             The website is currently experiencing high traffic. Please wait a
             moment and try again.
           </p>
@@ -37,13 +37,13 @@ export default function ServerCapacityError() {
 
             <Link
               href="/"
-              className="text-white hover:text-accent transition-colors"
+              className="hover:text-accent transition-colors"
             >
               Go to Homepage
             </Link>
           </div>
 
-          <div className="mt-8 text-sm text-white/40">
+          <div className="mt-8 text-sm text-theme-fg/40">
             <p>Maximum concurrent connections reached (50/50)</p>
             <p>Please wait for other users to finish browsing</p>
           </div>

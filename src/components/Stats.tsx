@@ -99,7 +99,7 @@ const Stats = () => {
                 delay={2}
                 className="text-4xl xl:text-6xl font-extrabold"
               />
-              <p className="max-w-[150px] leading-snug text-white/80">
+              <p className="max-w-[150px] leading-snug text-theme-fg/80">
                 {item.text}
               </p>
             </div>

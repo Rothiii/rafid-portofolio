@@ -58,7 +58,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-t from-black/30 via-transparent to-transparent"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-t from-theme-fg/[0.04] via-transparent to-transparent"
     >
       <div className="container mx-auto h-full">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-4 xl:pb-20 h-full">
@@ -71,7 +71,7 @@ const HeroSection = () => {
               <span className="text-accent">Rafid Al Khairy</span>
             </h2>
             <div className="text-xl min-h-[28px]">
-              <span className="text-white">I'm a {currentText}</span>
+              <span>I'm a {currentText}</span>
               <span
                 className="text-accent"
                 style={
@@ -86,7 +86,7 @@ const HeroSection = () => {
                 |
               </span>
             </div>
-            <p className="max-w-[480px] my-5 text-white/80">
+            <p className="max-w-[480px] my-5 text-theme-fg/80">
               Crafting innovative solutions with clean code and cutting-edge
               technologies. Ready to bring your next project to life. Let's
               build something amazing together.
@@ -94,7 +94,7 @@ const HeroSection = () => {
             {/* button and socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <div className="mb-5 xl:mb-0">
-                <p className="text-white/80">Lets connect with me</p>
+                <p className="text-theme-fg/80">Lets connect with me</p>
                 <Socials
                   containerStyles="flex gap-6"
                   iconStyles="w-8 h-8 border border-accent rounded-full flex items-center justify-center text-accent text-base hover:bg-accent hover:text-primary hover:transition-all duration-500"

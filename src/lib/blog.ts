@@ -56,3 +56,16 @@ export async function fetchBlogPostBySlug(
   const posts = await fetchBlogPosts();
   return posts.find((post) => post.slug === slug) || null;
 }
+
+export function calculateReadingTime(content: string): string {
+  const text = content
+    .replace(/```[\s\S]*?```/g, "")
+    .replace(/`[^`]*`/g, "")
+    .replace(/!\[.*?\]\(.*?\)/g, "")
+    .replace(/\[([^\]]*)\]\(.*?\)/g, "$1")
+    .replace(/[#*_~>\-|]/g, "")
+    .trim();
+  const wordCount = text.split(/\s+/).filter(Boolean).length;
+  const minutes = Math.max(1, Math.ceil(wordCount / 200));
+  return `${minutes} min read`;
+}

@@ -24,9 +24,11 @@ const config = {
       colors: {
         primary: "#1c1c22",
         accent: {
-          DEFAULT: "#00ff99",
-          hover: "#00e187",
+          DEFAULT: "rgb(var(--color-accent) / <alpha-value>)",
+          hover: "rgb(var(--color-accent-hover) / <alpha-value>)",
         },
+        "theme-fg": "rgb(var(--color-foreground) / <alpha-value>)",
+        "page-bg": "var(--page-bg)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -56,7 +58,7 @@ const config = {
       const newUtilities = {
         ".text-outline": {
           color: "transparent",
-          "-webkit-text-stroke": "1px #00ff99",
+          "-webkit-text-stroke": "1px rgb(var(--color-accent))",
         },
         ".text-outline-white": {
           color: "transparent",

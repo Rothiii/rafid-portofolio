@@ -1,4 +1,5 @@
 import { fetchBlogPosts } from "@/lib/blog";
+import { calculateReadingTime } from "@/lib/blog";
 import Link from "next/link";
 
 const BlogSection = async () => {
@@ -8,13 +9,13 @@ const BlogSection = async () => {
   return (
     <section
       id="blog"
-      className="py-12 xl:py-24 bg-gradient-to-t from-black/30 via-transparent to-transparent"
+      className="py-12 xl:py-24 bg-gradient-to-t from-theme-fg/[0.04] via-transparent to-transparent"
     >
       <div className="container mx-auto">
         {/* Title */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-white mb-4">Latest Blog</h2>
-          <p className="text-white/80 text-lg max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4">Latest Blog</h2>
+          <p className="text-theme-fg/80 text-lg max-w-2xl mx-auto">
             Recent thoughts and learnings from my journey as a software
             engineer.
           </p>
@@ -23,7 +24,7 @@ const BlogSection = async () => {
         {/* Posts Grid */}
         {latestPosts.length === 0 ? (
           <div className="text-center">
-            <p className="text-white/60 text-lg">
+            <p className="text-theme-fg/60 text-lg">
               No posts yet. Check back soon!
             </p>
           </div>
@@ -32,12 +33,16 @@ const BlogSection = async () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {latestPosts.map((post) => (
                 <Link key={post.slug} href={`/blog/${post.slug}`}>
-                  <article className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-accent/50 hover:scale-[1.02] transition-all duration-300 h-full">
-                    <p className="text-accent text-sm mb-2">{post.date}</p>
-                    <h3 className="text-xl font-semibold text-white mb-3">
+                  <article className="bg-theme-fg/5 backdrop-blur-sm rounded-xl p-6 border border-theme-fg/10 hover:border-accent/50 hover:scale-[1.02] transition-all duration-300 h-full">
+                    <div className="flex items-center gap-2 mb-2">
+                      <p className="text-accent text-sm">{post.date}</p>
+                      <span className="text-theme-fg/40">·</span>
+                      <p className="text-theme-fg/60 text-sm">{calculateReadingTime(post.content)}</p>
+                    </div>
+                    <h3 className="text-xl font-semibold mb-3">
                       {post.title}
                     </h3>
-                    <p className="text-white/70 text-sm mb-4 line-clamp-3">
+                    <p className="text-theme-fg/70 text-sm mb-4 line-clamp-3">
                       {post.summary}
                     </p>
                     <div className="flex flex-wrap gap-2">

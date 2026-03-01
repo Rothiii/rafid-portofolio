@@ -1,4 +1,4 @@
-import { fetchBlogPostBySlug, fetchBlogPosts } from "@/lib/blog";
+import { fetchBlogPostBySlug, fetchBlogPosts, calculateReadingTime } from "@/lib/blog";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -44,8 +44,12 @@ export default async function BlogPostPage({ params }: Props) {
 
         {/* Header */}
         <div className="mb-8">
-          <p className="text-accent text-sm mb-2">{post.date}</p>
-          <h1 className="text-3xl xl:text-5xl font-bold text-white mb-4">
+          <div className="flex items-center gap-2 mb-2">
+            <p className="text-accent text-sm">{post.date}</p>
+            <span className="text-theme-fg/40">·</span>
+            <p className="text-theme-fg/60 text-sm">{calculateReadingTime(post.content)}</p>
+          </div>
+          <h1 className="text-3xl xl:text-5xl font-bold mb-4">
             {post.title}
           </h1>
           <div className="flex flex-wrap gap-2 mb-6">

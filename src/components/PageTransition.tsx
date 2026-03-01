@@ -11,21 +11,28 @@ type Props = {
 const PageTransition = ({ children }: Props) => {
   const pathname = usePathname();
   return (
-    <>
-      <AnimatePresence>
-        <div key={pathname}>
-          <motion.div
-            initial={{ opacity: 1 }}
-            animate={{
-              opacity: 0,
-              transition: { delay: 1, duration: 0.5, ease: "easeInOut" },
-            }}
-            className="w-screen h-screen fixed bg-primary top-0 pointer-events-none z-30"
-          />
+    <AnimatePresence>
+      <div key={pathname}>
+        <motion.div
+          initial={{ opacity: 1 }}
+          animate={{
+            opacity: 0,
+            transition: { delay: 1, duration: 0.5, ease: "easeInOut" },
+          }}
+          className="w-screen h-screen fixed bg-page-bg top-0 pointer-events-none z-30"
+        />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            transition: { delay: 1.2, duration: 0.5, ease: "easeOut" },
+          }}
+        >
           {children}
-        </div>
-      </AnimatePresence>
-    </>
+        </motion.div>
+      </div>
+    </AnimatePresence>
   );
 };
 

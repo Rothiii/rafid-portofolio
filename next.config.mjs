@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: '**' },
+    ],
+  },
   // Webpack configuration to help with Windows caching issues
   webpack: (config, { dev, isServer }) => {
     // Reduce the number of cache files created

@@ -120,7 +120,7 @@ const DesktopNav = () => {
               </button>
 
               {showHomeSubmenu && (
-                <div className="absolute top-full right-0 mt-2 bg-primary border border-accent/20 rounded-lg shadow-lg p-3 z-50">
+                <div className="absolute top-full right-0 mt-2 bg-page-bg border border-accent/20 rounded-lg shadow-lg p-3 z-50">
                   <div className="flex gap-2 flex-wrap max-w-[400px]">
                     {homeSubSections.map((section, idx) => (
                       <button

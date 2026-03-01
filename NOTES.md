@@ -47,6 +47,45 @@
 - "Send Me a Message" button in homepage contact section linking to `/contact`
 - "View All Posts" button in blog section (shows when >3 posts)
 
+### 8. Dark/Light Mode Toggle
+- Installed `next-themes` for SSR-safe theme management with localStorage persistence
+- Default theme: dark (preserves original aesthetic)
+- Light mode: warm cream background (`#faf8f5`), dark brown text (`#1a1510`)
+- Sun/moon toggle button in header (desktop nav + mobile)
+- CSS custom properties (`--page-bg`, `--color-foreground`) for theme-aware colors
+- Tailwind extended with `theme-fg` and `page-bg` semantic color utilities
+- Updated 20+ components to use theme-aware colors instead of hardcoded `text-white`/`bg-white`
+- Smooth 0.3s transition on background and text color changes
+
+### 9. Enhanced Page Transitions
+- Added slide-up + fade animation for page content after stair transition
+- Stair bars now use `accent/20` color instead of plain white
+- Both PageTransition and StairTransition overlays use theme-aware `bg-page-bg`
+
+### 10. Blog Search & Filter
+- Client-side search bar on `/blog` page (filters by title and summary)
+- Tag filter pills extracted from all posts, clickable to toggle
+- "All" button to reset tag filter
+- New `BlogListClient.tsx` component handles client-side filtering
+- Server component fetches data, client component handles interactivity
+
+### 11. Reading Time Estimate
+- `calculateReadingTime()` utility in `src/lib/blog.ts`
+- Strips markdown syntax before counting words, 200 wpm reading speed
+- Displayed on blog listing cards, blog detail page, and homepage blog section
+- Shows as "X min read" next to date with dot separator
+
+### 12. Loading Skeletons for Blog
+- `src/app/blog/loading.tsx` - skeleton grid matching blog listing layout
+- `src/app/blog/[slug]/loading.tsx` - skeleton matching blog detail layout
+- Uses `animate-pulse` with theme-aware `bg-theme-fg/10` colors
+
+### 13. Blog Image Optimization
+- Replaced `<img>` in markdown components with Next.js `<Image>` component
+- Configured `next.config.mjs` with `remotePatterns` for HTTPS images
+- Images use `width={800} height={400}` with responsive `sizes` prop
+- Lazy loading enabled by default
+
 ---
 
 ## Environment Variables Needed
@@ -70,6 +109,7 @@ See `.env.example` for template.
 | `remark-gfm` | GitHub Flavored Markdown support |
 | `rehype-highlight` | Syntax highlighting in code blocks |
 | `@tailwindcss/typography` | Prose styling for blog posts |
+| `next-themes` | SSR-safe dark/light mode with localStorage persistence |
 
 ---
 
@@ -82,10 +122,10 @@ See `.env.example` for template.
 - [ ] Test blog post creation workflow end-to-end
 
 ### Features
-- [ ] Add dark/light mode toggle
-- [ ] Add page transition animations between routes
-- [ ] Add search/filter functionality to blog listing
-- [ ] Add reading time estimate to blog posts
+- [x] Add dark/light mode toggle
+- [x] Add page transition animations between routes
+- [x] Add search/filter functionality to blog listing
+- [x] Add reading time estimate to blog posts
 - [ ] Add table of contents for long blog posts
 - [ ] Add RSS feed for blog (`/blog/rss.xml`)
 - [ ] Add sitemap.xml generation
@@ -93,8 +133,8 @@ See `.env.example` for template.
 - [ ] Add CAPTCHA or rate limiting to contact form to prevent spam
 
 ### Performance
-- [ ] Add loading skeletons for blog posts
-- [ ] Implement image optimization for blog content images
+- [x] Add loading skeletons for blog posts
+- [x] Implement image optimization for blog content images
 - [ ] Consider adding `next/dynamic` for heavy client components
 - [ ] Add Lighthouse CI to measure performance regression
 

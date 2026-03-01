@@ -114,7 +114,7 @@ const ProjectsPage = () => {
   if (!project || projects.length === 0) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="text-white text-xl">Loading projects...</div>
+        <div className="text-xl">Loading projects...</div>
       </div>
     );
   }
@@ -300,7 +300,7 @@ const ProjectsPage = () => {
       </motion.section>
 
       {/* Featured Projects Grid Section */}
-      <section className="py-16 bg-primary/50">
+      <section className="py-16 bg-theme-fg/[0.03]">
         <div className="container mx-auto px-6">
           {/* Section Title */}
           <motion.div
@@ -310,10 +310,10 @@ const ProjectsPage = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className="text-4xl font-bold mb-4">
               FEATURED PROJECTS
             </h2>
-            <p className="text-white/60 max-w-2xl mx-auto">
+            <p className="text-theme-fg/60 max-w-2xl mx-auto">
               Explore my collection of development projects showcasing various
               technologies and solutions
             </p>
@@ -337,7 +337,7 @@ const ProjectsPage = () => {
                 className="group cursor-pointer"
                 onClick={() => handleProjectClick(projectItem)}
               >
-                <div className="relative bg-white/5 rounded-lg overflow-hidden hover:bg-white/10 transition-all duration-300 group-hover:scale-105">
+                <div className="relative bg-theme-fg/5 rounded-lg overflow-hidden hover:bg-theme-fg/10 transition-all duration-300 group-hover:scale-105">
                   {/* Project Image */}
                   <div className="relative h-48 overflow-hidden">
                     <Image
@@ -397,10 +397,10 @@ const ProjectsPage = () => {
 
                   {/* Project Info */}
                   <div className="p-4">
-                    <h3 className="font-semibold text-white mb-1 group-hover:text-accent transition-colors">
+                    <h3 className="font-semibold mb-1 group-hover:text-accent transition-colors">
                       {projectItem.title}
                     </h3>
-                    <p className="text-sm text-white/60 mb-3 line-clamp-2">
+                    <p className="text-sm text-theme-fg/60 mb-3 line-clamp-2">
                       {projectItem.category}
                     </p>
 
@@ -415,7 +415,7 @@ const ProjectsPage = () => {
                         </span>
                       ))}
                       {projectItem.stack.length > 3 && (
-                        <span className="px-2 py-1 bg-white/10 text-white/60 text-xs rounded-full">
+                        <span className="px-2 py-1 bg-theme-fg/10 text-theme-fg/60 text-xs rounded-full">
                           +{projectItem.stack.length - 3}
                         </span>
                       )}
@@ -435,7 +435,7 @@ const ProjectsPage = () => {
             className="flex flex-col sm:flex-row items-center justify-between mt-12 gap-4"
           >
             {/* Page Info */}
-            <div className="text-white/60">
+            <div className="text-theme-fg/60">
               Showing {startIndex + 1}-{Math.min(endIndex, projects.length)} of{" "}
               {projects.length} projects
             </div>
@@ -446,7 +446,7 @@ const ProjectsPage = () => {
               <button
                 onClick={goToPrevPage}
                 disabled={currentPage === 1}
-                className="px-4 py-2 bg-white/10 hover:bg-white/20 disabled:bg-white/5 disabled:opacity-50 text-white rounded-lg transition-colors flex items-center gap-2 disabled:cursor-not-allowed"
+                className="px-4 py-2 bg-theme-fg/10 hover:bg-theme-fg/20 disabled:bg-theme-fg/5 disabled:opacity-50 rounded-lg transition-colors flex items-center gap-2 disabled:cursor-not-allowed"
               >
                 <svg
                   className="w-4 h-4"
@@ -481,7 +481,7 @@ const ProjectsPage = () => {
                         page === currentPage + 2
                       ) {
                         return (
-                          <span key={page} className="px-2 text-white/40">
+                          <span key={page} className="px-2 text-theme-fg/40">
                             ...
                           </span>
                         );
@@ -496,7 +496,7 @@ const ProjectsPage = () => {
                         className={`w-10 h-10 rounded-lg transition-colors ${
                           currentPage === page
                             ? "bg-accent text-primary font-semibold"
-                            : "bg-white/10 hover:bg-white/20 text-white"
+                            : "bg-theme-fg/10 hover:bg-theme-fg/20"
                         }`}
                       >
                         {page}
@@ -510,7 +510,7 @@ const ProjectsPage = () => {
               <button
                 onClick={goToNextPage}
                 disabled={currentPage === totalPages}
-                className="px-4 py-2 bg-white/10 hover:bg-white/20 disabled:bg-white/5 disabled:opacity-50 text-white rounded-lg transition-colors flex items-center gap-2 disabled:cursor-not-allowed"
+                className="px-4 py-2 bg-theme-fg/10 hover:bg-theme-fg/20 disabled:bg-theme-fg/5 disabled:opacity-50 rounded-lg transition-colors flex items-center gap-2 disabled:cursor-not-allowed"
               >
                 Next
                 <svg
@@ -555,7 +555,7 @@ const ProjectsPage = () => {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
             transition={{ type: "spring", duration: 0.5 }}
-            className="relative w-[90vw] h-[80vh] max-w-6xl bg-primary/95 rounded-2xl overflow-hidden border border-white/10"
+            className="relative w-[90vw] h-[80vh] max-w-6xl bg-primary/95 rounded-2xl overflow-hidden border border-theme-fg/10"
           >
             {/* Close Button */}
             <button

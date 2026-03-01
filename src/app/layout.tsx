@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
+import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
 // components
@@ -41,14 +42,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={jetBrainsMono.className}>
-        <Header />
-        <StairTransition />
-        <PageTransition>{children}</PageTransition>
-        <ConnectionTracker />
-        <ConnectionStatus />
-        <Analytics />
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <Header />
+          <StairTransition />
+          <PageTransition>{children}</PageTransition>
+          <ConnectionTracker />
+          <ConnectionStatus />
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   );

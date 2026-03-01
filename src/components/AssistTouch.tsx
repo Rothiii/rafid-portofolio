@@ -129,7 +129,7 @@ const AssistTouch = () => {
 
         {/* Expanded menu */}
         {isExpanded && (
-          <div className="absolute top-16 right-0 bg-primary/95 backdrop-blur-md border border-accent/20 rounded-lg shadow-xl py-3 min-w-[200px] max-h-[80vh] overflow-y-auto">
+          <div className="absolute top-16 right-0 bg-page-bg/95 backdrop-blur-md border border-accent/20 rounded-lg shadow-xl py-3 min-w-[200px] max-h-[80vh] overflow-y-auto">
             {visibleLinks.map((link, index) => (
               <div key={index}>
                 {link.name === "Home" && isHomePage ? (

@@ -19,9 +19,9 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      "flex justify-between h-[48px] rounded-md bg-primary px-4 py-3" +
-        " font-light text-base border border-white/10 outline-none" +
-        " focus:border-accent focus:outline-none placeholder:text-white/60",
+      "flex justify-between h-[48px] rounded-md bg-stone-100 dark:bg-primary px-4 py-3" +
+        " font-light text-base border border-theme-fg/10 outline-none" +
+        " focus:border-accent focus:outline-none placeholder:text-theme-fg/40",
       className,
     )}
     {...props}
@@ -77,7 +77,7 @@ const SelectContent = React.forwardRef<
     <SelectPrimitive.Content
       ref={ref}
       className={cn(
-        "relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-md bg-primary text-white shadow-md" +
+        "relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-md bg-stone-100 dark:bg-primary shadow-md" +
           " data-[state=open]:animate-in data-[state=closed]:animate-out" +
           " data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0" +
           " data-[state=open]:zoom-in-95 data-[state=closed]:zoom-out-95" +
