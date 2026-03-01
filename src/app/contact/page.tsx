@@ -25,7 +25,6 @@ const ContactPage = () => {
     lastname: "",
     email: "",
     phone: "",
-    service: "",
     subject: "",
     message: "",
   });
@@ -70,7 +69,6 @@ const ContactPage = () => {
         lastname: "",
         email: "",
         phone: "",
-        service: "",
         subject: "",
         message: "",
       });

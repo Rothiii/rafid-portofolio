@@ -49,7 +49,6 @@ export async function POST(request: NextRequest) {
         <p><strong>Name:</strong> ${body.firstname} ${body.lastname}</p>
         <p><strong>Email:</strong> ${body.email}</p>
         <p><strong>Phone:</strong> ${body.phone || "Not provided"}</p>
-        <p><strong>Service:</strong> ${body.service || "Not selected"}</p>
         <hr />
         <p><strong>Message:</strong></p>
         <p>${body.message.replace(/\n/g, "<br />")}</p>
