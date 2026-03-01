@@ -19,6 +19,9 @@ const nextConfig = {
     turbotrace: {
       contextDirectory: process.cwd(),
     },
+    outputFileTracingIncludes: {
+      '/api/*': ['./node_modules/styled-jsx/**/*'],
+    },
   },
 
   // Disable SWC minify to reduce build complexity if needed
