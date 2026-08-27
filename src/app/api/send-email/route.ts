@@ -14,7 +14,6 @@ type ContactFormData = {
   lastname: string;
   email: string;
   phone: string;
-  service: string;
   subject: string;
   message: string;
 };
@@ -41,9 +40,9 @@ export async function POST(request: NextRequest) {
     const resend = getResend();
     const { data, error } = await resend.emails.send({
       from: "Portfolio Contact <onboarding@resend.dev>",
-      to: ["drome.emord@gmail.com"],
+      to: [process.env.CONTACT_TO_EMAIL || "drome.emord@gmail.com"],
       replyTo: body.email,
-      subject: body.subject || `Portfolio Contact: ${body.firstname} ${body.lastname} - ${body.service || "General Inquiry"}`,
+      subject: body.subject || `Portfolio Contact: ${body.firstname} ${body.lastname}`,
       html: `
         <h2>New Contact Form Submission</h2>
         <p><strong>Name:</strong> ${body.firstname} ${body.lastname}</p>

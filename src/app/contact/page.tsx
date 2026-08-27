@@ -85,7 +85,7 @@ const ContactPage = () => {
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ delay: 2.4, duration: 0.4, ease: "easeIn" }}
+      transition={{ delay: 0.3, duration: 0.4, ease: "easeIn" }}
       className="py-6"
     >
       <div className="container mx-auto">
@@ -94,65 +94,92 @@ const ContactPage = () => {
           <div className="xl:w-[54%] order-2 xl:order-none">
             <form
               onSubmit={handleSubmit}
-              className="flex flex-col gap-6 p-10 bg-stone-100 dark:bg-[#27272c] rounded-xl"
+              className="flex flex-col gap-6 p-10 border border-theme-fg/10 rounded-xl"
             >
-              <h3 className="text-4xl text-accent">Let's work together</h3>
+              <h1 className="text-4xl text-accent">Get in touch</h1>
               <p className="text-theme-fg/60">
-                I'd love to hear about your project. Fill in the form below and
-                I'll get back to you as soon as possible.
+                Open to full-time Backend / DevOps roles. Fill in the form
+                below and I&apos;ll get back to you as soon as possible.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="firstname" className="sr-only">First Name</label>
+                  <Input
+                    id="firstname"
+                    type="text"
+                    name="firstname"
+                    placeholder="First Name"
+                    required
+                    value={formData.firstname}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="lastname" className="sr-only">Last Name</label>
+                  <Input
+                    id="lastname"
+                    type="text"
+                    name="lastname"
+                    placeholder="Last Name"
+                    value={formData.lastname}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="sr-only">Email</label>
+                  <Input
+                    id="email"
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="phone" className="sr-only">Phone Number</label>
+                  <Input
+                    id="phone"
+                    type="text"
+                    name="phone"
+                    placeholder="Phone Number"
+                    value={formData.phone}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="subject" className="sr-only">Subject</label>
                 <Input
+                  id="subject"
                   type="text"
-                  name="firstname"
-                  placeholder="First Name"
-                  value={formData.firstname}
-                  onChange={handleChange}
-                />
-                <Input
-                  type="text"
-                  name="lastname"
-                  placeholder="Last Name"
-                  value={formData.lastname}
-                  onChange={handleChange}
-                />
-                <Input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                />
-                <Input
-                  type="text"
-                  name="phone"
-                  placeholder="Phone Number"
-                  value={formData.phone}
+                  name="subject"
+                  placeholder="Subject"
+                  value={formData.subject}
                   onChange={handleChange}
                 />
               </div>
 
-              <Input
-                type="text"
-                name="subject"
-                placeholder="Subject"
-                value={formData.subject}
-                onChange={handleChange}
-              />
-
-              <Textarea
-                name="message"
-                className="h-[50px] resize-none overflow-hidden"
-                placeholder="Type your message here."
-                value={formData.message}
-                onChange={handleChange}
-                onInput={(e) => {
-                  const target = e.target as HTMLTextAreaElement;
-                  target.style.height = "50px";
-                  target.style.height = `${target.scrollHeight}px`;
-                }}
-              />
+              <div>
+                <label htmlFor="message" className="sr-only">Message</label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  className="h-[50px] resize-none overflow-hidden"
+                  placeholder="Type your message here."
+                  required
+                  value={formData.message}
+                  onChange={handleChange}
+                  onInput={(e) => {
+                    const target = e.target as HTMLTextAreaElement;
+                    target.style.height = "50px";
+                    target.style.height = `${target.scrollHeight}px`;
+                  }}
+                />
+              </div>
 
               <Button
                 size="md"
@@ -163,14 +190,16 @@ const ContactPage = () => {
                 {status === "loading" ? "Sending..." : "Send Message"}
               </Button>
 
-              {status === "success" && (
-                <p className="text-green-400 text-sm">
-                  Message sent successfully! I'll get back to you soon.
-                </p>
-              )}
-              {status === "error" && (
-                <p className="text-red-400 text-sm">{errorMessage}</p>
-              )}
+              <div role="status" aria-live="polite">
+                {status === "success" && (
+                  <p className="text-green-400 text-sm">
+                    Message sent successfully! I&apos;ll get back to you soon.
+                  </p>
+                )}
+                {status === "error" && (
+                  <p className="text-red-400 text-sm">{errorMessage}</p>
+                )}
+              </div>
             </form>
           </div>
 
@@ -179,7 +208,7 @@ const ContactPage = () => {
             <ul className="flex flex-col gap-10">
               {info.map((item) => (
                 <li key={item.title} className="flex items-center gap-6">
-                  <div className="w-[48px] h-[48px] xl:w-[72px] xl:h-[72px] bg-stone-100 dark:bg-[#27272c] text-accent rounded-md flex items-center justify-center">
+                  <div className="w-[48px] h-[48px] xl:w-[72px] xl:h-[72px] border border-theme-fg/10 text-accent rounded-md flex items-center justify-center">
                     <div className="text-[24px]">{item.icon}</div>
                   </div>
                   <div className="flex-1">

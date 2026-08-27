@@ -12,13 +12,18 @@ const config = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: {
+        DEFAULT: "1.25rem",
+        sm: "1.5rem",
+        xl: "2rem",
+      },
       screens: {
         "2xl": "1400px",
       },
     },
     fontFamily: {
       primary: "var(--font-jetBrainsMono)",
+      sans: "var(--font-inter)",
     },
     extend: {
       colors: {

@@ -1,67 +1,28 @@
-"use client";
 import { education } from "@/data/resume";
-import { FaCalendar, FaMedal } from "react-icons/fa";
-import { FaGraduationCap } from "react-icons/fa6";
+import SectionHeading from "@/components/SectionHeading";
 
 const EducationSection = () => {
   return (
-    <section
-      id="education"
-      className="py-12 xl:py-24 bg-gradient-to-t from-theme-fg/[0.04] via-transparent to-transparent"
-    >
+    <section id="education" className="py-12 xl:py-24">
       <div className="container mx-auto">
-        {/* Title */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Education</h2>
-          <p className="text-theme-fg/80 text-lg max-w-2xl mx-auto">
-            "Education is the most powerful weapon which you can use to change
-            the world."
-          </p>
-        </div>
+        <SectionHeading title="education" />
 
-        {/* Timeline */}
-        <div className="relative max-w-4xl mx-auto">
-          {/* Timeline Line */}
-          <div className="absolute left-1/4 transform -translate-x-px top-0 bottom-0 w-0.5 bg-accent/30"></div>
-
+        <div className="max-w-3xl divide-y divide-theme-fg/10 border-t border-theme-fg/10">
           {education.items.map((edu) => (
             <div
               key={`${edu.institution}-${edu.degree}`}
-              className="relative flex justify-center mb-12 last:mb-0"
+              className="py-6 flex flex-col sm:flex-row sm:gap-8"
             >
-              {/* Content - Centered with fixed width */}
-              <div className="w-full max-w-2xl">
-                <div className="bg-theme-fg/5 backdrop-blur-sm rounded-xl p-6 border border-theme-fg/10">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex items-start flex-1">
-                      <span className="text-2xl mr-4 mt-1">
-                        <FaGraduationCap />
-                      </span>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-semibold mb-2">
-                          {edu.degree}
-                        </h3>
-                        <p className="text-accent font-medium mb-1">
-                          {edu.institution}
-                        </p>
-                        <div className="flex items-start">
-                          <FaCalendar />
-                          <p className="text-theme-fg/60 text-sm ml-3 mb-3">
-                            {edu.duration}
-                          </p>
-                        </div>
-                        {edu.score && (
-                          <div className="flex items-start">
-                            <FaMedal />
-                            <p className="text-theme-fg/80 text-sm ml-3 leading-relaxed">
-                              {edu.score}
-                            </p>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <span className="font-primary text-accent text-xs shrink-0 sm:w-32 mb-2 sm:mb-0 sm:pt-1">
+                {edu.duration}
+              </span>
+
+              <div>
+                <h3 className="text-lg font-semibold">{edu.degree}</h3>
+                <p className="text-theme-fg/60 text-sm">{edu.institution}</p>
+                {edu.score && (
+                  <p className="text-theme-fg/70 text-sm mt-1">{edu.score}</p>
+                )}
               </div>
             </div>
           ))}

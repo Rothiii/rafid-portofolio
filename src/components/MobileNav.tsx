@@ -1,12 +1,12 @@
 "use client";
 
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { CiMenuFries } from "react-icons/ci";
 import { useState, useEffect } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import { links } from "@/lib/links";
+import { links, homeSubSections } from "@/lib/links";
 
 const MobileNav = () => {
   const pathname = usePathname();
@@ -14,16 +14,6 @@ const MobileNav = () => {
   const [showHomeSubmenu, setShowHomeSubmenu] = useState(false);
   const [activeSection, setActiveSection] = useState("");
 
-  const homeSubSections = [
-    { name: "Hero", href: "#hero" },
-    { name: "About", href: "#about" },
-    { name: "Experience", href: "#experience" },
-    { name: "Education", href: "#education" },
-    { name: "Skills", href: "#skills" },
-    { name: "Contact", href: "#contact" },
-  ];
-
-  const visibleLinks = links.filter((link) => !link.hidden);
   const isHomePage = pathname === "/";
 
   // Active section detection
@@ -38,9 +28,9 @@ const MobileNav = () => {
 
       const scrollPosition = window.scrollY + 100;
 
-      // Default to hero section if at top or very close to top
+      // Default to no active section at the top
       if (window.scrollY < 50) {
-        setActiveSection("hero");
+        setActiveSection("");
         return;
       }
 
@@ -80,21 +70,20 @@ const MobileNav = () => {
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
-      <SheetTrigger className="flex justify-center items-center">
+      <SheetTrigger className="flex justify-center items-center" aria-label="Open navigation menu">
         <CiMenuFries className="text-[32px] text-accent" />
       </SheetTrigger>
       <SheetContent className="flex flex-col">
+        <SheetTitle className="sr-only">Navigation menu</SheetTitle>
         {/* logo */}
         <div className="mt-32 mb-40 text-center text-2xl">
-          <Link href="/" onClick={handleLinkClick}>
-            <h1 className="text-4xl font-semibold">
-              Rafid<span className="text-accent">.</span>
-            </h1>
+          <Link href="/" onClick={handleLinkClick} className="text-4xl font-primary font-semibold">
+            Rafid<span className="text-accent">.</span>
           </Link>
         </div>
         {/* nav */}
         <nav className="flex flex-col justify-center items-center gap-8">
-          {visibleLinks.map((link, index) => (
+          {links.map((link, index) => (
             <div key={index} className="w-full">
               {link.name === "Home" && isHomePage ? (
                 <div className="w-full">

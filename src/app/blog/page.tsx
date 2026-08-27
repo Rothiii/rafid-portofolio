@@ -19,9 +19,11 @@ export default async function BlogPage() {
     <section className="min-h-screen py-12 xl:py-24">
       <div className="container mx-auto">
         {/* Title */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Blog</h2>
-          <p className="text-theme-fg/80 text-lg max-w-2xl mx-auto">
+        <div className="mb-16">
+          <h1 className="h2 mb-4">
+            <span className="text-accent">$ </span>blog
+          </h1>
+          <p className="text-theme-fg/80 text-lg max-w-2xl">
             Documenting my learnings, findings, and thoughts on software
             engineering.
           </p>

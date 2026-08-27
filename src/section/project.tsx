@@ -1,260 +1,109 @@
 "use client";
 
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import { useState } from "react";
 import { BsArrowUpRight, BsGithub } from "react-icons/bs";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import Link from "next/link";
 import Image from "next/image";
 import { projects } from "@/data/project";
+import SectionHeading from "@/components/SectionHeading";
 
 const ProjectSection = () => {
-  // Show only first 3 projects
   const latestProjects = projects.slice(0, 3);
-  const [selectedProject, setSelectedProject] = useState(latestProjects[0]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalProject, setModalProject] = useState<
     (typeof projects)[number] | null
   >(null);
 
-  const handleProjectClick = (project: (typeof projects)[number]) => {
-    setModalProject(project);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setTimeout(() => setModalProject(null), 300);
-  };
+  const closeModal = () => setModalProject(null);
 
   return (
     <>
-      <section 
-      id="projects"
-      className="py-20 bg-page-bg relative min-h-screen">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0">
-          <Image
-            src={selectedProject.image}
-            fill
-            sizes="100vw"
-            className="object-cover transition-all duration-1000"
-            alt={selectedProject.title}
-            priority
+      <section id="projects" className="py-12 xl:py-24">
+        <div className="container mx-auto">
+          <SectionHeading
+            title="projects"
+            description="A selection of backend systems and APIs I've built and shipped."
           />
-          <div className="absolute inset-0 bg-black/60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
 
-          {/* Project Logo Overlay */}
-          {selectedProject.logo && (
-            <div className="absolute top-6 left-6 w-12 h-12 md:w-16 md:h-16 p-2 z-10">
-              <Image
-                src={selectedProject.logo}
-                fill
-                sizes="64px"
-                className="object-contain"
-                alt={`${selectedProject.title} logo`}
-              />
-            </div>
-          )}
-        </div>
-
-        <div className="container mx-auto relative z-10 h-full flex flex-col">
-          {/* Title */}
-          <div className="text-center mb-8 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Latest Projects
-            </h2>
-            <p className="text-white/80 text-base md:text-lg max-w-2xl mx-auto">
-              "My code not perfect, but its mine. And I am proud of it."
-            </p>
-          </div>
-
-          {/* Hero Project Overview - Hidden on Mobile */}
-          <div className="hidden lg:block flex-1 mb-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-full items-end">
-              {/* Project Details */}
-              <div className="space-y-6">
-                <div className="text-6xl xl:text-8xl leading-none font-extrabold text-transparent text-outline">
-                  {selectedProject.num}
-                </div>
-
-                <h3 className="text-3xl xl:text-5xl font-bold text-white leading-tight">
-                  {selectedProject.category}
-                </h3>
-
-                <p className="text-lg text-white/80 leading-relaxed">
-                  {selectedProject.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2">
-                  {selectedProject.stack.map((item) => (
-                    <span
-                      key={item.name}
-                      className="px-3 py-1 bg-accent/20 text-accent text-sm font-medium rounded-full border border-accent/30"
-                    >
-                      {item.name}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex items-center gap-4 pt-4">
-                  {selectedProject.live && (
-                    <Link
-                      href={selectedProject.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <TooltipProvider delayDuration={100}>
-                        <Tooltip>
-                          <TooltipTrigger className="w-12 h-12 bg-accent hover:bg-accent-hover text-primary rounded-full flex justify-center items-center transition-all duration-300 hover:scale-110">
-                            <BsArrowUpRight className="text-xl" />
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>Live project</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
-                    </Link>
-                  )}
-                  {selectedProject.github && (
-                    <Link
-                      href={selectedProject.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <TooltipProvider delayDuration={100}>
-                        <Tooltip>
-                          <TooltipTrigger className="w-12 h-12 bg-white/10 hover:bg-accent hover:text-primary text-white rounded-full flex justify-center items-center transition-all duration-300 hover:scale-110">
-                            <BsGithub className="text-xl" />
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>Github repository</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
-                    </Link>
-                  )}
-                </div>
-              </div>
-
-              {/* Spacer for image (image is background) */}
-              <div className="hidden lg:block"></div>
-            </div>
-          </div>
-
-          {/* Project Navigation Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+          <div className="max-w-3xl divide-y divide-theme-fg/10 border-t border-theme-fg/10">
             {latestProjects.map((project) => (
-              <div
+              <button
                 key={project.num}
-                onClick={() => {
-                  setSelectedProject(project);
-                  // On mobile, open modal instead of just changing background
-                  if (window.innerWidth < 1024) {
-                    handleProjectClick(project);
-                  }
-                }}
-                className={`bg-white/10 backdrop-blur-sm rounded-xl border ${
-                  selectedProject.num === project.num
-                    ? "border-accent"
-                    : "border-white/20"
-                } hover:border-accent/50 hover:bg-white/20 transition-all duration-300 overflow-hidden cursor-pointer group`}
+                onClick={() => setModalProject(project)}
+                className="w-full flex flex-col sm:flex-row gap-4 sm:gap-6 py-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
               >
-                {/* Project Image */}
-                <div className="h-24 md:h-32 relative overflow-hidden">
+                <div className="relative w-full sm:w-40 h-28 shrink-0 rounded overflow-hidden bg-theme-fg/5">
                   <Image
                     src={project.image}
                     fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="160px"
+                    className="object-cover"
                     alt={project.title}
                   />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
-
-                  {/* Logo overlay */}
-                  {project.logo && (
-                    <div className="absolute top-2 left-2 w-6 h-6 md:w-8 md:h-8 bg-white/90 rounded p-1">
-                      <Image
-                        src={project.logo}
-                        fill
-                        sizes="32px"
-                        className="object-contain"
-                        alt=""
-                      />
-                    </div>
-                  )}
                 </div>
 
-                {/* Project Info */}
-                <div className="p-3 md:p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-accent font-bold text-base md:text-lg">
-                      {project.num}
-                    </span>
-                    <span className="text-white/60 text-xs">
-                      {project.category}
-                    </span>
-                  </div>
-                  <h3 className="text-white font-semibold text-sm mb-2 line-clamp-1">
-                    {project.title}
-                  </h3>
-                  <p className="text-white/70 text-xs line-clamp-2">
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-lg font-semibold">{project.title}</h3>
+                  <p className="text-accent text-sm mb-2 font-primary">
+                    {project.category}
+                  </p>
+                  <p className="text-theme-fg/70 text-sm mb-3 line-clamp-2">
                     {project.description}
                   </p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.stack.slice(0, 4).map((item) => (
+                      <span
+                        key={item.name}
+                        className="font-primary px-2 py-0.5 border border-theme-fg/15 text-theme-fg/60 text-xs rounded"
+                      >
+                        {item.name}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </button>
             ))}
           </div>
 
-          {/* Show More Button */}
-          <div className="text-center mt-8 md:mt-12">
-            <Link href="/projects">
-              <button className="px-6 md:px-8 py-3 bg-accent text-primary font-medium rounded-full hover:bg-accent/90 transition-colors duration-200">
-                Show More Projects
-              </button>
-            </Link>
-          </div>
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-2 mt-8 text-accent text-sm font-medium hover:underline"
+          >
+            View all projects →
+          </Link>
         </div>
       </section>
 
       {/* Project Detail Modal */}
-      {isModalOpen && modalProject && (
+      {modalProject && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center lg:hidden"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
         >
-          {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 bg-black/90 backdrop-blur-md"
+            className="absolute inset-0 bg-black/80 backdrop-blur-md"
             onClick={closeModal}
           />
 
-          {/* Modal Content */}
           <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
+            initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.8, opacity: 0 }}
-            transition={{ type: "spring", duration: 0.5 }}
-            className="relative w-[95vw] h-[85vh] bg-primary/95 rounded-2xl overflow-hidden border border-white/20"
+            exit={{ scale: 0.95, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-page-bg rounded-2xl border border-theme-fg/10 p-6 md:p-8"
           >
-            {/* Close Button */}
             <button
               onClick={closeModal}
-              className="absolute top-4 right-4 z-30 w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white hover:text-accent transition-all duration-300"
+              aria-label="Close"
+              className="absolute top-4 right-4 z-10 w-9 h-9 bg-theme-fg/10 hover:bg-theme-fg/20 rounded-full flex items-center justify-center transition-colors"
             >
               <svg
-                className="w-6 h-6"
+                className="w-5 h-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -268,85 +117,58 @@ const ProjectSection = () => {
               </svg>
             </button>
 
-            {/* Background Image */}
-            <div className="absolute inset-0">
+            <div className="relative w-full h-48 rounded-lg overflow-hidden mb-6">
               <Image
                 src={modalProject.image}
                 fill
-                sizes="95vw"
+                sizes="640px"
                 className="object-cover"
                 alt={modalProject.title}
               />
-              <div className="absolute inset-0 bg-black/60" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
             </div>
 
-            {/* Content */}
-            <div className="relative h-full flex flex-col justify-end p-6 z-10">
-              {/* Project Logo */}
-              {modalProject.logo && (
-                <div className="absolute top-6 left-6 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-lg p-2">
-                  <Image
-                    src={modalProject.logo}
-                    fill
-                    sizes="48px"
-                    className="object-contain"
-                    alt={`${modalProject.title} logo`}
-                  />
-                </div>
+            <h2 className="text-2xl font-bold mb-1">{modalProject.title}</h2>
+            <h3 className="text-accent font-primary text-sm mb-4">
+              {modalProject.category}
+            </h3>
+            <p className="text-theme-fg/80 leading-relaxed mb-6">
+              {modalProject.description}
+            </p>
+
+            <div className="flex flex-wrap gap-2 mb-6">
+              {modalProject.stack.map((item) => (
+                <span
+                  key={item.name}
+                  className="font-primary px-2 py-0.5 border border-theme-fg/15 text-theme-fg/60 text-xs rounded"
+                >
+                  {item.name}
+                </span>
+              ))}
+            </div>
+
+            <div className="flex gap-3">
+              {modalProject.live && (
+                <Link
+                  href={modalProject.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2.5 bg-accent text-primary font-medium rounded-full flex items-center gap-2 text-sm"
+                >
+                  <BsArrowUpRight />
+                  Live
+                </Link>
               )}
-
-              <div className="space-y-4">
-                <div className="text-4xl leading-none font-extrabold text-transparent text-outline">
-                  {modalProject.num}
-                </div>
-
-                <h2 className="text-2xl font-bold text-white leading-tight">
-                  {modalProject.title}
-                </h2>
-
-                <h3 className="text-lg text-accent">{modalProject.category}</h3>
-
-                <p className="text-white/80 leading-relaxed">
-                  {modalProject.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2">
-                  {modalProject.stack.map((item) => (
-                    <span
-                      key={item.name}
-                      className="px-3 py-1 bg-accent/20 text-accent text-sm rounded-full border border-accent/30"
-                    >
-                      {item.name}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex gap-3 pt-4">
-                  {modalProject.live && (
-                    <Link
-                      href={modalProject.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-6 py-3 bg-accent hover:bg-accent-hover text-primary font-semibold rounded-lg transition-all duration-300 flex items-center gap-2"
-                    >
-                      <BsArrowUpRight className="text-lg" />
-                      Live
-                    </Link>
-                  )}
-                  {modalProject.github && (
-                    <Link
-                      href={modalProject.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-6 py-3 bg-white/20 hover:bg-white/30 text-white font-semibold rounded-lg transition-all duration-300 flex items-center gap-2"
-                    >
-                      <BsGithub className="text-lg" />
-                      Code
-                    </Link>
-                  )}
-                </div>
-              </div>
+              {modalProject.github && (
+                <Link
+                  href={modalProject.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2.5 border border-theme-fg/15 font-medium rounded-full flex items-center gap-2 text-sm hover:border-accent/50 transition-colors"
+                >
+                  <BsGithub />
+                  Code
+                </Link>
+              )}
             </div>
           </motion.div>
         </motion.div>

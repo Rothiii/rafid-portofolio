@@ -14,11 +14,19 @@ export const links = [
   {
     name: "Resume",
     path: "/resume",
-    hidden: true,
   },
   {
     name: "Contact",
     path: "/contact",
-    hidden: true,
   },
+];
+
+export const homeSubSections = [
+  { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
+  { name: "Projects", href: "#projects" },
+  { name: "Blog", href: "#blog" },
+  { name: "Experience", href: "#experience" },
+  { name: "Education", href: "#education" },
+  { name: "Contact", href: "#contact" },
 ];

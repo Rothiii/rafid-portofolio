@@ -4,6 +4,7 @@ const nextConfig = {
     remotePatterns: [
       { protocol: 'https', hostname: '**' },
     ],
+    formats: ['image/avif', 'image/webp'],
   },
   // Webpack configuration to help with Windows caching issues
   webpack: (config, { dev, isServer }) => {

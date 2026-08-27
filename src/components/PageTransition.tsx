@@ -17,7 +17,7 @@ const PageTransition = ({ children }: Props) => {
           initial={{ opacity: 1 }}
           animate={{
             opacity: 0,
-            transition: { delay: 1, duration: 0.5, ease: "easeInOut" },
+            transition: { delay: 0.25, duration: 0.3, ease: "easeInOut" },
           }}
           className="w-screen h-screen fixed bg-page-bg top-0 pointer-events-none z-30"
         />
@@ -26,7 +26,7 @@ const PageTransition = ({ children }: Props) => {
           animate={{
             opacity: 1,
             y: 0,
-            transition: { delay: 1.2, duration: 0.5, ease: "easeOut" },
+            transition: { delay: 0.3, duration: 0.4, ease: "easeOut" },
           }}
         >
           {children}

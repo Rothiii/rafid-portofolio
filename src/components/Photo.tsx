@@ -8,7 +8,7 @@ const Photo = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ delay: 2, duration: 0.4, ease: "easeIn" }}
+      transition={{ delay: 0.4, duration: 0.4, ease: "easeIn" }}
       className="w-full h-full relative flex items-center justify-center"
     >
       {/* circle */}
@@ -43,17 +43,16 @@ const Photo = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2.4, duration: 0.4, ease: "easeInOut" }}
+        transition={{ delay: 0.5, duration: 0.4, ease: "easeInOut" }}
         className="absolute w-[250px] h-[250px] xl:w-[450px] xl:h-[450px] rounded-full overflow-hidden"
       >
         <Image
-          src="/assets/photo3.png"
+          src="/assets/photo3.webp"
           alt="Rafid Al Khairy"
           priority
-          quality={100}
+          quality={82}
           fill
           className="object-cover"
-          
         />
       </motion.div>
     </motion.div>

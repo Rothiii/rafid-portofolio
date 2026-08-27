@@ -4,12 +4,6 @@ import { motion } from "framer-motion";
 
 // components
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 // data
@@ -21,130 +15,101 @@ const ResumePage = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ delay: 2.4, duration: 0.4, ease: "easeIn" }}
-      className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
+      transition={{ delay: 0.3, duration: 0.4, ease: "easeIn" }}
+      className="py-12 xl:py-24"
     >
       <div className="container mx-auto">
         <Tabs
           defaultValue="experience"
-          className="flex flex-col xl:flex-row gap-[32px] xl:gap-[48px]"
+          className="flex flex-col xl:flex-row gap-10 xl:gap-16"
         >
-          <TabsList className="flex flex-col w-full max-w-[320px] mx-auto xl:-mx-0 gap-6">
+          <TabsList className="flex flex-row xl:flex-col w-full xl:w-40 gap-2 flex-wrap">
             <TabsTrigger value="experience">Experience</TabsTrigger>
             <TabsTrigger value="education">Education</TabsTrigger>
             <TabsTrigger value="skills">Skills</TabsTrigger>
             <TabsTrigger value="about">About</TabsTrigger>
           </TabsList>
 
-          <div className="min-h-[70vh] w-full">
+          <div className="w-full">
             {/* experience */}
-            <TabsContent value="experience" className="w-full">
-              <div className="flex flex-col gap-[32px] text-center xl:text-left">
-                <h3 className="text-4xl font-bold">{experience.title}</h3>
-                <p className="text-theme-fg/80 mx-auto xl:mx-0 text-justify">
-                  {experience.description}
-                </p>
-                <ScrollArea className="h-[480px]">
-                  <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[32px]">
-                    {experience.items.map((item, index) => (
-                      <li
-                        key={index}
-                        className="bg-stone-100 dark:bg-[#232329] h-48 px-10 py-6 flex flex-col justify-center text-center items-start gap-1 rounded-xl"
-                      >
-                        <span className="text-accent">{item.period}</span>
-                        <h3 className="text-xl max-w-[340px] min-h-[64px] text-left lg:text-left">
-                          {item.position}
-                        </h3>
-                        <div className="flex items-center gap-3">
-                          <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                          <p className="text-theme-fg/60">{item.company}</p>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </ScrollArea>
-              </div>
+            <TabsContent value="experience">
+              <h1 className="h2 mb-2">{experience.title}</h1>
+              <p className="text-theme-fg/70 mb-8 max-w-xl">
+                {experience.description}
+              </p>
+              <ScrollArea className="h-[480px] pr-4">
+                <div className="divide-y divide-theme-fg/10 border-t border-theme-fg/10">
+                  {experience.items.map((item, index) => (
+                    <div key={index} className="py-5 flex flex-col sm:flex-row sm:gap-6">
+                      <span className="font-primary text-accent text-xs shrink-0 sm:w-32">
+                        {item.period}
+                      </span>
+                      <div>
+                        <h3 className="text-lg font-semibold">{item.position}</h3>
+                        <p className="text-theme-fg/60 text-sm">{item.company}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </ScrollArea>
             </TabsContent>
 
             {/* education */}
-            <TabsContent value="education" className="w-full">
-              <div className="flex flex-col gap-[32px] text-center xl:text-left">
-                <h3 className="text-4xl font-bold">{education.title}</h3>
-                <p className="text-theme-fg/80 mx-auto xl:mx-0 text-justify">
-                  {education.description}
-                </p>
-                <ScrollArea className="h-[480px]">
-                  <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[32px]">
-                    {education.items.map((item, index) => (
-                      <li
-                        key={index}
-                        className="bg-stone-100 dark:bg-[#232329] h-48 px-10 py-6 flex flex-col justify-center text-start lg:items-start gap-1 rounded-xl"
-                      >
-                        <span className="text-accent">{item.duration}</span>
-                        <h3 className="text-xl max-w-[340px] min-h-[64px] text-start lg:text-left">
-                          {item.degree}
-                        </h3>
-                        <div className="flex items-center gap-3">
-                          <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                          <p className="text-theme-fg/60">{item.institution}</p>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </ScrollArea>
-              </div>
+            <TabsContent value="education">
+              <h1 className="h2 mb-2">{education.title}</h1>
+              <p className="text-theme-fg/70 mb-8 max-w-xl">
+                {education.description}
+              </p>
+              <ScrollArea className="h-[480px] pr-4">
+                <div className="divide-y divide-theme-fg/10 border-t border-theme-fg/10">
+                  {education.items.map((item, index) => (
+                    <div key={index} className="py-5 flex flex-col sm:flex-row sm:gap-6">
+                      <span className="font-primary text-accent text-xs shrink-0 sm:w-32">
+                        {item.duration}
+                      </span>
+                      <div>
+                        <h3 className="text-lg font-semibold">{item.degree}</h3>
+                        <p className="text-theme-fg/60 text-sm">{item.institution}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </ScrollArea>
             </TabsContent>
 
             {/* skills */}
-            <TabsContent value="skills" className="w-full h-full">
-              <div className="flex flex-col gap-[32px] text-center xl:text-left">
-                <h3 className="text-4xl font-bold">{skills.title}</h3>
-                <p className="text-theme-fg/80 mx-auto xl:mx-0 text-justify">
-                  {skills.description}
-                </p>
-                <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[32px]">
-                  {skills.items.map((item, index) => (
-                    <li key={index}>
-                      <TooltipProvider delayDuration={100}>
-                        <Tooltip>
-                          <TooltipTrigger className="w-full h-[160px] bg-stone-100 dark:bg-[#232329] rounded-xl flex justify-center items-center group">
-                            <div className="text-6xl group-hover:text-accent transition-all duration-300">
-                              {item.icon}
-                            </div>
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <span className="capitalize">{item.name}</span>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
-                    </li>
-                  ))}
-                </ul>
+            <TabsContent value="skills">
+              <h1 className="h2 mb-2">{skills.title}</h1>
+              <p className="text-theme-fg/70 mb-8 max-w-xl">
+                {skills.description}
+              </p>
+              <div className="flex flex-wrap gap-2 max-w-2xl">
+                {skills.items.map((item, index) => (
+                  <span
+                    key={index}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-theme-fg/15 rounded font-primary text-xs text-theme-fg/80"
+                  >
+                    <span className="text-accent text-sm">{item.icon}</span>
+                    {item.name}
+                  </span>
+                ))}
               </div>
             </TabsContent>
 
             {/* about */}
-            <TabsContent
-              value="about"
-              className="w-full text-center xl:text-left"
-            >
-              <div className="flex flex-col gap-[32px] text-center xl:text-left">
-                <h3 className="text-4xl font-bold">{about.title}</h3>
-                <p className="text-theme-fg/80 mx-auto xl:mx-0 text-justify">
-                  {about.description}
-                </p>
-                <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 mx-auto xl:mx-0">
-                  {about.info.map((item, index) => (
-                    <li
-                      key={index}
-                      className="flex items-center justify-center xl:justify-start gap-4 "
-                    >
-                      <span className="text-theme-fg/60">{item.name}</span>
-                      <span className="text-xl">{item.value}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <TabsContent value="about">
+              <h1 className="h2 mb-2">{about.title}</h1>
+              <p className="text-theme-fg/70 mb-8 max-w-xl">
+                {about.description}
+              </p>
+              <dl className="max-w-md divide-y divide-theme-fg/10 border-t border-theme-fg/10">
+                {about.info.map((item, index) => (
+                  <div key={index} className="flex justify-between py-3">
+                    <dt className="text-theme-fg/60">{item.name}</dt>
+                    <dd className="font-medium">{item.value}</dd>
+                  </div>
+                ))}
+              </dl>
             </TabsContent>
           </div>
         </Tabs>

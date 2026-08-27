@@ -25,7 +25,7 @@ export const projects: Project[] = [
       { name: "Nginx" },
       { name: "Socket.IO" },
     ],
-    image: "/assets/projects/project-chatbot.jpg",
+    image: "/assets/projects/project-chatbot.webp",
     logo: "/assets/projects/logo-chatbot.png",
     github: "https://github.com/Rothiii/backend-random-chat-app/tree/chat",
   },
@@ -42,7 +42,7 @@ export const projects: Project[] = [
       { name: "Nginx" },
     ],
     logo: "/assets/projects/logo-meraih.png",
-    image: "/assets/projects/project-meraih.png",
+    image: "/assets/projects/project-meraih.webp",
     github: "https://github.com/Rothiii/backend_MeraihApp",
   },
   {
@@ -60,7 +60,7 @@ export const projects: Project[] = [
       { name: "Nginx" },
     ],
     logo: "/assets/projects/logo-imm.png",
-    image: "/assets/projects/project-imm.jpg",
+    image: "/assets/projects/project-imm.webp",
   },
   // {
   //   num: "04",

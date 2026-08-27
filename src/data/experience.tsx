@@ -68,7 +68,7 @@ export const experience: Experience = {
     {
       company: "Bangkit Academy",
       position: "Cloud Computing Cohort",
-      period: "2015 - 2016",
+      period: "Aug 2023 - Jan 2024",
       technologies: [
         "Google Cloud",
         "Docker",

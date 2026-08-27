@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono, Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
 // components
 import Header from "@/components/Header";
+import Sidebar from "@/components/Sidebar";
 import PageTransition from "@/components/PageTransition";
 import StairTransition from "@/components/StairTransition";
-import ConnectionTracker from "@/components/ConnectionTracker";
-import ConnectionStatus from "@/components/ConnectionStatus";
 import { Analytics } from "@vercel/analytics/next"
 
 const jetBrainsMono = JetBrains_Mono({
@@ -17,22 +16,40 @@ const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetBrainsMono",
 });
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
 export const metadata: Metadata = {
-  title: "Rafid Al Khairy - Software Engineer Portfolio",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Rafid Al Khairy - Backend & DevOps Engineer",
+    template: "%s | Rafid Al Khairy",
+  },
   description:
-    "Software Engineer specializing in backend development, cloud architecture, and full-stack solutions.",
+    "Backend & DevOps engineer building production Node.js / PostgreSQL systems — REST APIs, CI/CD, cloud infrastructure.",
   keywords: [
-    "software engineer",
-    "backend developer",
-    "full-stack developer",
+    "backend engineer",
+    "devops engineer",
+    "node.js developer",
     "portfolio",
     "Rafid Al Khairy",
   ],
   openGraph: {
-    title: "Rafid Al Khairy - Software Engineer",
+    title: "Rafid Al Khairy - Backend & DevOps Engineer",
     description:
-      "Software Engineer specializing in backend development, cloud architecture, and full-stack solutions.",
+      "Backend & DevOps engineer building production Node.js / PostgreSQL systems — REST APIs, CI/CD, cloud infrastructure.",
     type: "website",
+    url: siteUrl,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Rafid Al Khairy - Backend & DevOps Engineer",
+    description:
+      "Backend & DevOps engineer building production Node.js / PostgreSQL systems — REST APIs, CI/CD, cloud infrastructure.",
   },
 };
 
@@ -43,13 +60,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={jetBrainsMono.className}>
+      <body className={`${jetBrainsMono.variable} ${inter.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <Header />
+          <Sidebar />
           <StairTransition />
-          <PageTransition>{children}</PageTransition>
-          <ConnectionTracker />
-          <ConnectionStatus />
+          <div className="xl:pl-64">
+            <PageTransition>{children}</PageTransition>
+          </div>
           <Analytics />
         </ThemeProvider>
       </body>

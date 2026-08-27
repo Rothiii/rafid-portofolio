@@ -58,8 +58,8 @@ export const about: About = {
       value: "drome.emord@gmail.com",
     },
     {
-      name: "Freelance",
-      value: "Available",
+      name: "Status",
+      value: "Open to full-time roles",
     },
     {
       name: "Language",

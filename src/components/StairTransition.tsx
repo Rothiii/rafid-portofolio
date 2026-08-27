@@ -20,7 +20,7 @@ const StairTransition = () => {
             initial={{ opacity: 1 }}
             animate={{
               opacity: 0,
-              transition: { delay: 1, duration: 0.5, ease: "easeInOut" },
+              transition: { delay: 0.25, duration: 0.3, ease: "easeInOut" },
             }}
             className="w-screen h-screen fixed bg-page-bg top-0 pointer-events-none z-30"
           />

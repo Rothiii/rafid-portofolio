@@ -8,8 +8,8 @@
         --page-bg: #faf8f5;
         --color-foreground: 26 21 16;
         --card-surface: 26 21 16;
-        --color-accent: 5 150 105;
-        --color-accent-hover: 4 120 87;
+        --color-accent: 154 66 8;
+        --color-accent-hover: 120 53 15;
 
         --background: 0 0% 100%;
         --foreground: 222.2 84% 4.9%;
@@ -43,8 +43,8 @@
         --page-bg: #1c1c22;
         --color-foreground: 255 255 255;
         --card-surface: 255 255 255;
-        --color-accent: 0 255 153;
-        --color-accent-hover: 0 225 135;
+        --color-accent: 251 191 36;
+        --color-accent-hover: 245 158 11;
 
         --background: 222.2 84% 4.9%;
         --foreground: 210 40% 98%;
@@ -75,19 +75,19 @@
 
 @layer base {
     body {
-        @apply font-primary leading-loose;
+        @apply font-sans leading-relaxed;
         background-color: var(--page-bg);
         color: rgb(var(--color-foreground));
         transition: background-color 0.3s ease, color 0.3s ease;
     }
     .h1 {
-        @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold;
+        @apply font-primary text-[40px] xl:text-[72px] leading-[1.1] font-semibold;
     }
     .h2 {
-        @apply text-[36px] xl:text-[48px] leading-[1.1] font-semibold;
+        @apply font-primary text-[32px] xl:text-[44px] leading-[1.1] font-semibold;
     }
     .h3 {
-        @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold;
+        @apply font-primary text-[20px] xl:text-[24px] leading-[1.1] font-semibold;
     }
     .text-outline {
         -webkit-text-stroke: 1px rgb(var(--color-foreground));
@@ -107,5 +107,16 @@
     }
     100% {
         opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }

@@ -7,12 +7,7 @@ import Photo from "@/components/Photo";
 import Socials from "@/components/Socials";
 import { FiDownload } from "react-icons/fi";
 
-const roles = [
-  "Software Engineer",
-  "Data Engineer Enthusiast",
-  "Cloud/DevOps Enthusiast",
-  "Backend Engineer",
-];
+const roles = ["Backend Engineer", "DevOps Engineer", "Software Engineer"];
 
 const HeroSection = () => {
 
@@ -65,12 +60,12 @@ const HeroSection = () => {
           {/* text */}
           <div className="text-center xl:text-left order-2 xl:order-none">
             {/* info */}
-            <h2 className="h2 mb-6">
+            <h1 className="h2 mb-6">
               Hello I'm
               <br />
               <span className="text-accent">Rafid Al Khairy</span>
-            </h2>
-            <div className="text-xl min-h-[28px]">
+            </h1>
+            <div className="text-xl min-h-[28px] font-primary">
               <span>I'm a {currentText}</span>
               <span
                 className="text-accent"
@@ -87,14 +82,14 @@ const HeroSection = () => {
               </span>
             </div>
             <p className="max-w-[480px] my-5 text-theme-fg/80">
-              Crafting innovative solutions with clean code and cutting-edge
-              technologies. Ready to bring your next project to life. Let's
-              build something amazing together.
+              Backend & DevOps engineer building production Node.js /
+              PostgreSQL systems serving 1,000+ users — REST APIs, CI/CD, and
+              cloud infrastructure.
             </p>
             {/* button and socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <div className="mb-5 xl:mb-0">
-                <p className="text-theme-fg/80">Lets connect with me</p>
+                <p className="text-theme-fg/80">Let&apos;s connect</p>
                 <Socials
                   containerStyles="flex gap-6"
                   iconStyles="w-8 h-8 border border-accent rounded-full flex items-center justify-center text-accent text-base hover:bg-accent hover:text-primary hover:transition-all duration-500"
@@ -102,7 +97,7 @@ const HeroSection = () => {
               </div>
               <a
                 href="/assets/resume.pdf"
-                download
+                download="Rafid-Al-Khairy-CV.pdf"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-accent text-accent rounded-full hover:bg-accent hover:text-primary transition-all duration-500 text-sm font-medium"
               >
                 <FiDownload className="text-lg" />

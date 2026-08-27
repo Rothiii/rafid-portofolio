@@ -1,65 +1,47 @@
 import { experience } from "@/data/experience";
+import SectionHeading from "@/components/SectionHeading";
 
 const ExperienceSection = () => {
   return (
-    <section
-      id="experience"
-      className="py-12 xl:py-24 bg-gradient-to-t from-theme-fg/[0.04] via-transparent to-transparent"
-    >
+    <section id="experience" className="py-12 xl:py-24">
       <div className="container mx-auto">
-        {/* Title */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Experience</h2>
-          <p className="text-theme-fg/80 text-lg max-w-2xl mx-auto">
-            My journey from hello world to building real-world applications.
-          </p>
-        </div>
+        <SectionHeading
+          title="experience"
+          description="My journey from hello world to building production systems."
+        />
 
-        {/* Timeline */}
-        <div className="relative max-w-4xl mx-auto">
-          {/* Timeline Line */}
-          <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5 bg-accent/30"></div>
-
+        <div className="max-w-3xl divide-y divide-theme-fg/10 border-t border-theme-fg/10">
           {experience.items.map((exp) => (
-            <div key={`${exp.company}-${exp.period}`} className="relative flex mb-12 last:mb-0">
-              {/* Timeline Dot */}
-              <div className="absolute left-2.5 sm:left-6 w-4 h-4 bg-accent rounded-full border-4 border-page-bg z-10 mt-1"></div>
+            <div
+              key={`${exp.company}-${exp.period}`}
+              className="py-6 flex flex-col sm:flex-row sm:gap-8"
+            >
+              <span className="font-primary text-accent text-xs shrink-0 sm:w-32 mb-2 sm:mb-0 sm:pt-1">
+                {exp.period}
+              </span>
 
-              {/* Content */}
-              <div className="w-full ml-12 sm:ml-16">
-                <div className="bg-theme-fg/5 backdrop-blur-sm rounded-xl p-6 border border-theme-fg/10">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                    <div>
-                      <h3 className="text-xl font-semibold mb-1">
-                        {exp.position}
-                      </h3>
-                      <p className="text-accent font-medium">{exp.company}</p>
-                    </div>
-                    <span className="text-theme-fg/60 text-sm mt-2 sm:mt-0">
-                      {exp.period}
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold">{exp.position}</h3>
+                <p className="text-theme-fg/60 text-sm mb-3">{exp.company}</p>
+
+                <ul className="text-theme-fg/80 text-sm mb-4 space-y-1.5">
+                  {exp.points.map((point, pointIndex) => (
+                    <li key={pointIndex} className="flex items-start">
+                      <span className="text-accent mr-2 mt-1">•</span>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="flex flex-wrap gap-2">
+                  {exp.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="font-primary px-2 py-0.5 border border-theme-fg/15 text-theme-fg/60 text-xs rounded"
+                    >
+                      {tech}
                     </span>
-                  </div>
-
-                  <ul className="text-theme-fg/80 text-sm mb-4 space-y-2">
-                    {exp.points.map((point, pointIndex) => (
-                      <li key={pointIndex} className="flex items-start">
-                        <span className="text-accent mr-2 mt-1">•</span>
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Technologies */}
-                  <div className="flex flex-wrap gap-2">
-                    {exp.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1 bg-accent/20 text-accent text-xs rounded-full"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
