@@ -19,7 +19,7 @@ export const experience: Experience = {
     {
       company: "PT. Planet IT",
       position: "Full Stack Developer",
-      period: "Sep 2025 - Present",
+      period: "Sep 2025 - Sep 2026",
       location: "Balikpapan, Kalimantan Timur",
       technologies: ["Nuxt.js", "Node.js", "TypeScript", "PostgreSQL", "Docker", "VPS"],
       points: [
