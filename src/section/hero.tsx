@@ -97,7 +97,7 @@ const HeroSection = () => {
               </div>
               <a
                 href="/assets/resume.pdf"
-                download="Rafid-Al-Khairy-CV.pdf"
+                download="Resume - Rafid Al Khairy.pdf"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-accent text-accent rounded-full hover:bg-accent hover:text-primary transition-all duration-500 text-sm font-medium"
               >
                 <FiDownload className="text-lg" />
