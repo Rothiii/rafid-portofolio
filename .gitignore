@@ -38,3 +38,5 @@ yarn-error.log*
 next-env.d.ts
 
 .env
+# local resume draft (public copy lives at public/assets/resume.pdf)
+Resume - Rafid - En.pdf

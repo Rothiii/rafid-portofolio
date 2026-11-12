@@ -6,7 +6,8 @@ import ProjectSection from "@/section/project";
 import ExperienceSection from "@/section/experience";
 import EducationSection from "@/section/education";
 import ContactSection from "@/section/contact";
-import BlogSection from "@/section/blog";
+// Blog is hidden for now. Re-enable by uncommenting the import and the section below.
+// import BlogSection from "@/section/blog";
 
 const HomePage = () => {
   return (
@@ -23,8 +24,8 @@ const HomePage = () => {
       {/* Projects Section */}
       <ProjectSection />
 
-      {/* Blog Section */}
-      <BlogSection />
+      {/* Blog Section (hidden for now) */}
+      {/* <BlogSection /> */}
 
       {/* Experience Section */}
       <ExperienceSection />

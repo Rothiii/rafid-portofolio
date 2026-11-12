@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 506 506" width="506" height="506">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="shirt" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <!-- background circle -->
+  <circle cx="253" cy="253" r="250" fill="none" stroke="rgb(var(--color-accent))" stroke-width="4"/>
+  <!-- head gradient fill -->
+  <circle cx="253" cy="200" r="92" fill="#fde68a"/>
+  <!-- neck -->
+  <rect x="228" y="286" width="50" height="40" rx="6" fill="#fcd34d"/>
+  <!-- shoulders / shirt -->
+  <path d="M110 506 L110 360 Q150 320 253 320 Q356 320 396 360 L396 506 Z" fill="url(#shirt)"/>
+  <!-- hair -->
+  <path d="M161 200 Q161 110 253 110 Q345 110 345 200 Q345 160 253 160 Q161 160 161 200 Z" fill="#2d1b12"/>
+  <!-- eyes -->
+  <circle cx="210" cy="192" r="9" fill="#1f2937"/>
+  <circle cx="296" cy="192" r="9" fill="#1f2937"/>
+  <circle cx="212" cy="190" r="3" fill="#fff"/>
+  <circle cx="298" cy="190" r="3" fill="#fff"/>
+  <!-- nose -->
+  <path d="M253 200 Q246 222 253 232" stroke="#b45309" stroke-width="3" fill="none" strokeLinecap="round"/>
+  <!-- mouth -->
+  <path d="M232 250 Q253 262 274 250" stroke="#b45309" stroke-width="3" fill="none" strokeLinecap="round"/>
+</svg>

@@ -19,6 +19,12 @@ import {
   SiDocker,
   SiFigma,
   SiPostman,
+  SiVuedotjs,
+  SiNuxtdotjs,
+  SiAmazonwebservices,
+  SiLinux,
+  SiGithub,
+  SiSocketdotio,
 } from "react-icons/si";
 
 // about data
@@ -155,6 +161,18 @@ export const skills: Skill = {
       icon: <SiNextdotjs />,
     },
     {
+      name: "Vue.js",
+      icon: <SiVuedotjs />,
+    },
+    {
+      name: "Nuxt.js",
+      icon: <SiNuxtdotjs />,
+    },
+    {
+      name: "Socket.IO",
+      icon: <SiSocketdotio />,
+    },
+    {
       name: "PostgreSQL",
       icon: <SiPostgresql />,
     },
@@ -169,6 +187,18 @@ export const skills: Skill = {
     {
       name: "Git",
       icon: <SiGit />,
+    },
+    {
+      name: "GitHub",
+      icon: <SiGithub />,
+    },
+    {
+      name: "Linux",
+      icon: <SiLinux />,
+    },
+    {
+      name: "AWS",
+      icon: <SiAmazonwebservices />,
     },
     {
       name: "Google Cloud Platform",

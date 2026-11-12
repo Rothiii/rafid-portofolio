@@ -22,7 +22,10 @@ const ExperienceSection = () => {
 
               <div className="flex-1">
                 <h3 className="text-lg font-semibold">{exp.position}</h3>
-                <p className="text-theme-fg/60 text-sm mb-3">{exp.company}</p>
+                <p className="text-theme-fg/60 text-sm mb-3">
+                  {exp.company}
+                  {exp.location ? `, ${exp.location}` : ""}
+                </p>
 
                 <ul className="text-theme-fg/80 text-sm mb-4 space-y-1.5">
                   {exp.points.map((point, pointIndex) => (

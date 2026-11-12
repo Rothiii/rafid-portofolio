@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s | Rafid Al Khairy",
   },
   description:
-    "Backend & DevOps engineer building production Node.js / PostgreSQL systems — REST APIs, CI/CD, cloud infrastructure.",
+    "Backend & DevOps engineer building production Node.js / PostgreSQL systems - REST APIs, CI/CD, cloud infrastructure.",
   keywords: [
     "backend engineer",
     "devops engineer",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Rafid Al Khairy - Backend & DevOps Engineer",
     description:
-      "Backend & DevOps engineer building production Node.js / PostgreSQL systems — REST APIs, CI/CD, cloud infrastructure.",
+      "Backend & DevOps engineer building production Node.js / PostgreSQL systems - REST APIs, CI/CD, cloud infrastructure.",
     type: "website",
     url: siteUrl,
   },
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Rafid Al Khairy - Backend & DevOps Engineer",
     description:
-      "Backend & DevOps engineer building production Node.js / PostgreSQL systems — REST APIs, CI/CD, cloud infrastructure.",
+      "Backend & DevOps engineer building production Node.js / PostgreSQL systems - REST APIs, CI/CD, cloud infrastructure.",
   },
 };
 

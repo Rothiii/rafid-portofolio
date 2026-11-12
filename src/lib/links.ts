@@ -8,10 +8,6 @@ export const links = [
     path: "/projects",
   },
   {
-    name: "Blog",
-    path: "/blog",
-  },
-  {
     name: "Resume",
     path: "/resume",
   },
@@ -25,7 +21,6 @@ export const homeSubSections = [
   { name: "About", href: "#about" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
-  { name: "Blog", href: "#blog" },
   { name: "Experience", href: "#experience" },
   { name: "Education", href: "#education" },
   { name: "Contact", href: "#contact" },

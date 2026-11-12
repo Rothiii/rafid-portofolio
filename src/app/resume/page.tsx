@@ -46,7 +46,10 @@ const ResumePage = () => {
                       </span>
                       <div>
                         <h3 className="text-lg font-semibold">{item.position}</h3>
-                        <p className="text-theme-fg/60 text-sm">{item.company}</p>
+                        <p className="text-theme-fg/60 text-sm">
+                          {item.company}
+                          {item.location ? `, ${item.location}` : ""}
+                        </p>
                       </div>
                     </div>
                   ))}

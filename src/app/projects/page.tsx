@@ -51,6 +51,7 @@ const ProjectsPage = () => {
                   <h3 className="text-lg font-semibold">{project.title}</h3>
                   <p className="text-accent text-sm mb-2 font-primary">
                     {project.category}
+                    {project.period ? ` · ${project.period}` : ""}
                   </p>
                   <p className="text-theme-fg/70 text-sm mb-3 line-clamp-2">
                     {project.description}

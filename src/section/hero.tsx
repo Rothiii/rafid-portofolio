@@ -83,7 +83,7 @@ const HeroSection = () => {
             </div>
             <p className="max-w-[480px] my-5 text-theme-fg/80">
               Backend & DevOps engineer building production Node.js /
-              PostgreSQL systems serving 1,000+ users — REST APIs, CI/CD, and
+              PostgreSQL systems serving 1,000+ users - REST APIs, CI/CD, and
               cloud infrastructure.
             </p>
             {/* button and socials */}

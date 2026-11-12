@@ -3,6 +3,7 @@ export type Project = {
   category: string;
   title: string;
   description: string;
+  period?: string;
   stack: { name: string }[];
   image: string;
   logo?: string;
@@ -15,6 +16,7 @@ export const projects: Project[] = [
     num: "01",
     category: "Mobile & Backend API Development",
     title: "Mobile Chat Application",
+    period: "Aug 2024 - Nov 2024",
     description:
       "A real-time chat application for mobile, featuring a Socket-based backend and integrated with LLM (Large Language Model) for chatbot functionality. The system allows real-time chat with random people or bots.",
     stack: [
@@ -33,6 +35,7 @@ export const projects: Project[] = [
     num: "02",
     category: "Backend System Development",
     title: "Attendance Management System",
+    period: "Feb 2024 - May 2024",
     description:
       "A geo-location-based attendance system integrated with a mobile application. The system includes an API for managing attendance and employee data, developed to improve team collaboration and system debugging.",
     stack: [
@@ -49,6 +52,7 @@ export const projects: Project[] = [
     num: "03",
     category: "Backend System & Performance",
     title: "Production-Level Backend System @ PT. Indominco Mandiri",
+    period: "Jun 2024 - Aug 2024",
     description:
       "Developed and maintained a backend system with Node.js, REST API, and PostgreSQL that was actively used by over 1,000+ users in a production environment. Designed scalable API endpoints to manage over 50,000 records and optimized performance with efficient pagination.",
     stack: [

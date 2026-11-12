@@ -47,7 +47,7 @@ const Photo = () => {
         className="absolute w-[250px] h-[250px] xl:w-[450px] xl:h-[450px] rounded-full overflow-hidden"
       >
         <Image
-          src="/assets/photo3.webp"
+          src="/assets/avatar.svg"
           alt="Rafid Al Khairy"
           priority
           quality={82}

@@ -11,6 +11,12 @@ const categories: Record<string, string[]> = {
     "PostgreSQL",
     "MySQL",
     "Firebase",
+    "Vue.js",
+    "Nuxt.js",
+    "Socket.IO",
+    "AWS",
+    "Linux",
+    "GitHub",
   ],
   "DevOps & Cloud": [
     "Docker",

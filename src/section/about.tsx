@@ -10,12 +10,12 @@ const points = [
   {
     label: "what",
     icon: Rocket,
-    text: "Backend services, REST APIs, CI/CD pipelines, and cloud infrastructure — end to end, from code to deployed system.",
+    text: "Backend services, REST APIs, CI/CD pipelines, and cloud infrastructure - end to end, from code to deployed system.",
   },
   {
     label: "goal",
     icon: Target,
-    text: "Growing into a senior backend/DevOps role — owning systems end to end and mentoring others along the way.",
+    text: "Growing into a senior backend/DevOps role - owning systems end to end and mentoring others along the way.",
   },
   {
     label: "philosophy",
